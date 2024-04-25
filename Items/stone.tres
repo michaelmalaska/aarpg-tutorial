@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c0co5vj5hgk12"]
+
+[ext_resource type="Script" path="res://Items/scripts/item_data.gd" id="1_6wwgd"]
+[ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="2_o7eoo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn00s"]
+atlas = ExtResource("2_o7eoo")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_6wwgd")
+name = "Stone"
+description = "Who doesn't love collecting rocks?"
+texture = SubResource("AtlasTexture_sn00s")
