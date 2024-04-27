@@ -73,7 +73,6 @@ offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 10
-text = "This red drink restores your health! sadfas dfsad fads "
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -132,3 +131,6 @@ text = "Save"
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Load"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 4
