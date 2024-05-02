@@ -1,5 +1,6 @@
 class_name EnemyStateDestroy extends EnemyState
 
+const PICKUP = preload("res://Items/item_pickup/item_pickup.tscn")
 
 @export var anim_name : String = "destroy"
 @export var knockback_speed : float = 200.0
@@ -7,8 +8,12 @@ class_name EnemyStateDestroy extends EnemyState
 
 @export_category("AI")
 
+@export_category("Item Drops")
+@export var drops : Array[ DropData ]
+
 var _damage_position : Vector2
 var _direction : Vector2
+
 
 
 ## What happens when we initialize this state?
@@ -26,6 +31,7 @@ func enter() -> void:
 	enemy.update_animation( anim_name )
 	enemy.animation_player.animation_finished.connect( _on_animation_finished )
 	disable_hurt_box()
+	drop_items()
 	pass
 
 
@@ -59,4 +65,22 @@ func disable_hurt_box() -> void:
 	var hurt_box : HurtBox = enemy.get_node_or_null("HurtBox")
 	if hurt_box:
 		hurt_box.monitoring = false
+
+
+
+func drop_items() -> void:
+	if drops.size() == 0:
+		return
+	
+	for i in drops.size():
+		if drops[ i ] == null or drops[ i ].item == null:
+			continue
+		var drop_count : int = drops[ i ].get_drop_count()
+		for j in drop_count:
+			var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
+			drop.item_data = drops[ i ].item
+			enemy.get_parent().call_deferred( "add_child", drop )
+			drop.global_position = enemy.global_position
+			drop.velocity = enemy.velocity.rotated( randf_range( -1.5, 1.5 ) ) * randf_range( 0.9 , 1.5 )
+	pass
 
