@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://7egb2012ff3b"]
+[gd_scene load_steps=6 format=3 uid="uid://7egb2012ff3b"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_t4c53"]
 [ext_resource type="PackedScene" uid="uid://dgdqc0v1oicd5" path="res://Tile Maps/grass-01.tscn" id="2_nsy0e"]
 [ext_resource type="PackedScene" uid="uid://vlpiuopcomwi" path="res://Levels/level_transition.tscn" id="4_b5wk2"]
 [ext_resource type="PackedScene" uid="uid://dr4blo7ya448q" path="res://Levels/player_spawn.tscn" id="4_loexg"]
-[ext_resource type="PackedScene" uid="uid://cldjbf03xmdqt" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="5_6orlb"]
-[ext_resource type="Resource" uid="uid://cixpflhl0cjvo" path="res://Items/gem.tres" id="6_vq1rg"]
-[ext_resource type="Resource" uid="uid://c0co5vj5hgk12" path="res://Items/stone.tres" id="7_h38mo"]
-[ext_resource type="Resource" uid="uid://bi48vid6jl4ua" path="res://Items/potion.tres" id="8_j385h"]
+[ext_resource type="PackedScene" uid="uid://bxnynmne8hsl2" path="res://Enemies/goblin/goblin.tscn" id="5_xqwo5"]
 
 [node name="01" type="Node2D"]
 y_sort_enabled = true
@@ -30,16 +27,5 @@ level = "res://Levels/Area01/03.tscn"
 size = 3
 side = 1
 
-[node name="Treasure-chest" parent="." instance=ExtResource("5_6orlb")]
-position = Vector2(171, 164)
-item_data = ExtResource("8_j385h")
-
-[node name="Treasure-chest2" parent="." instance=ExtResource("5_6orlb")]
-position = Vector2(252, 164)
-item_data = ExtResource("6_vq1rg")
-quantity = 10
-
-[node name="Treasure-chest3" parent="." instance=ExtResource("5_6orlb")]
-position = Vector2(330, 164)
-item_data = ExtResource("7_h38mo")
-quantity = 50
+[node name="Goblin" parent="." instance=ExtResource("5_xqwo5")]
+position = Vector2(252, 138)
