@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgdqc0v1oicd5"]
+[gd_scene load_steps=7 format=3 uid="uid://dgdqc0v1oicd5"]
 
 [ext_resource type="Texture2D" uid="uid://d01qv0qqg01ba" path="res://Tile Maps/Sprites/Grass-01.png" id="1_xkblo"]
 [ext_resource type="Script" path="res://Tile Maps/level_tile_map.gd" id="2_e2n1y"]
+[ext_resource type="Texture2D" uid="uid://fwby631k8pda" path="res://Tile Maps/Sprites/dungeon_entrance.png" id="2_x1j5c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2ps0"]
 texture = ExtResource("1_xkblo")
@@ -720,6 +721,45 @@ texture_region_size = Vector2i(32, 32)
 15:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:7/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52cmm"]
+texture = ExtResource("2_x1j5c")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 8.5, -16, 8.5, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -8.5, -16, -8.5, 16, 16, 16)
+
 [sub_resource type="TileSet" id="TileSet_8axs6"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 16
@@ -728,6 +768,7 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Path"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_n2ps0")
+sources/1 = SubResource("TileSetAtlasSource_52cmm")
 
 [node name="Grass-01" type="TileMap"]
 z_index = -1
