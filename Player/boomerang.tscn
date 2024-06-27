@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwd2gdtxaj8gq"]
+
+[ext_resource type="Script" path="res://Player/scripts/abilities/boomerang.gd" id="1_uindf"]
+[ext_resource type="Texture2D" uid="uid://c3fker5i76tw0" path="res://Player/Sprites/boomerang.png" id="2_yetih"]
+[ext_resource type="PackedScene" uid="uid://cpvl4rru3x52v" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="3_x1lys"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8845"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2rdn0"]
+radius = 13.0
+
+[sub_resource type="Animation" id="Animation_4oyoa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4qjrs"]
+resource_name = "boomerang"
+length = 0.3
+loop_mode = 1
+step = 0.0375
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0375, 0.075, 0.1125, 0.15, 0.1875, 0.225, 0.2625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojvoo"]
+_data = {
+"RESET": SubResource("Animation_4oyoa"),
+"boomerang": SubResource("Animation_4qjrs")
+}
+
+[node name="Boomerang" type="Node2D"]
+script = ExtResource("1_uindf")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_x1lys")]
+collision_mask = 256
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_q8845")
+debug_color = Color(0.913725, 0.141176, 0.0666667, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -16)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2rdn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_yetih")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ojvoo")
+}
+autoplay = "boomerang"
