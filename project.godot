@@ -17,6 +17,7 @@ config/icon="res://aarpg-tutorial-icon.png"
 
 [autoload]
 
+AudioManager="*res://00_Globals/global_audio_manager.gd"
 LevelManager="*res://00_Globals/global_level_manager.gd"
 PlayerHud="*res://GUI/player_hud/player_hud.tscn"
 PlayerManager="*res://00_Globals/global_player_manager.gd"
