@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://GeneralNodes/EnemyCounter/enemy_counter.gd" id="1_2d55a"]
 
 [node name="EnemyCounter" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_2d55a")

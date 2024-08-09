@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AARPG Tutorial"
-run/main_scene="res://Levels/Area01/01.tscn"
+run/main_scene="res://Levels/Area01/02.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://aarpg-tutorial-icon.png"
 

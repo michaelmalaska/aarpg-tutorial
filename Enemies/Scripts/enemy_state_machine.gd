@@ -47,7 +47,7 @@ func change_state( new_state : EnemyState ) -> void:
 	
 	if new_state == null || new_state == current_state:
 		return
-	print("change_state :: ", current_state, " -> ", new_state )
+	
 	if current_state:
 		current_state.exit()
 	

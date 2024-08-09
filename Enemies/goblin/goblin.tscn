@@ -232,7 +232,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.05)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -312,7 +312,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.05)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -392,7 +392,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.05)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
