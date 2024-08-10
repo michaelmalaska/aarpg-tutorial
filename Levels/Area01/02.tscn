@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=13 format=3 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dapdr3ojo2pha" path="res://npc/npc_behavior_wander.tscn" id="8_f8c10"]
 [ext_resource type="Resource" uid="uid://csvi3x1wp3gy6" path="res://npc/00_npcs/npc_01.tres" id="8_fbvcf"]
 [ext_resource type="Resource" uid="uid://bqfxxks18ou8u" path="res://npc/00_npcs/npc_02.tres" id="8_yuemd"]
+[ext_resource type="PackedScene" uid="uid://dpenv0euqqlkg" path="res://npc/npc_behavior_patrol.tscn" id="11_q675y"]
+[ext_resource type="PackedScene" uid="uid://dyhn3j7qk4dqw" path="res://npc/patrol_location.tscn" id="12_sc27x"]
 
 [node name="02" type="Node2D"]
 y_sort_enabled = true
@@ -54,3 +56,21 @@ npc_resource = ExtResource("8_fbvcf")
 [node name="NPC2" parent="." instance=ExtResource("7_62xuh")]
 position = Vector2(329, 144)
 npc_resource = ExtResource("8_yuemd")
+
+[node name="NpcBehaviorPatrol" parent="NPC2" instance=ExtResource("11_q675y")]
+
+[node name="PatrolLocation" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("12_sc27x")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(64, 0)
+
+[node name="PatrolLocation2" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("12_sc27x")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(64, 62)
+
+[node name="PatrolLocation3" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("12_sc27x")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-74, 62)
+
+[node name="PatrolLocation4" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("12_sc27x")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-74, 0)
