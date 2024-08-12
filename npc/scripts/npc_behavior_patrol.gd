@@ -16,7 +16,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		child_entered_tree.connect( gather_patrol_locations )
 		child_order_changed.connect( gather_patrol_locations )
-	pass
+		return
 	super()
 	if patrol_locations.size() == 0:
 		process_mode = Node.PROCESS_MODE_DISABLED
@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 
-func _process(delta: float) -> void:
+func _process( _delta: float ) -> void:
 	if Engine.is_editor_hint():
 		return
 	if npc.global_position.distance_to( target.target_position ) < 1:
