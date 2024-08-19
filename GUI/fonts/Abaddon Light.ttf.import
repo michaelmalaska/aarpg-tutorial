@@ -1,0 +1,34 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://ufo0hj0jkl1o"
+path="res://.godot/imported/Abaddon Light.ttf-9c2223e4b61ca68f5db862721ef73ff8.fontdata"
+
+[deps]
+
+source_file="res://GUI/fonts/Abaddon Light.ttf"
+dest_files=["res://.godot/imported/Abaddon Light.ttf-9c2223e4b61ca68f5db862721ef73ff8.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

@@ -68,4 +68,3 @@ func update_item_description( new_text : String ) -> void:
 func play_audio( audio : AudioStream ) -> void:
 	audio_stream_player.stream = audio
 	audio_stream_player.play()
-
