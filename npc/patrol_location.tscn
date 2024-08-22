@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyhn3j7qk4dqw"]
+[gd_scene load_steps=5 format=3 uid="uid://dyhn3j7qk4dqw"]
 
 [ext_resource type="Script" path="res://npc/scripts/patrol_location.gd" id="1_0cegc"]
+[ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="2_4cfmi"]
 
 [sub_resource type="Gradient" id="Gradient_l071x"]
 offsets = PackedFloat32Array(0.3829, 0.776952, 0.884758, 0.944238)
@@ -28,29 +29,28 @@ width = 1.0
 default_color = Color(1, 1, 1, 0.517647)
 
 [node name="Label" type="Label" parent="Sprite2D"]
-offset_left = -19.0
-offset_top = -9.0
-offset_right = 21.0
-offset_bottom = 8.0
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 10.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 12
 text = "0"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Sprite2D"]
-offset_left = -19.0
+offset_left = -22.0
 offset_top = 6.0
-offset_right = 25.0
+offset_right = 22.0
 offset_bottom = 23.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("2_4cfmi")
 text = "wait: 0s"
 horizontal_alignment = 1

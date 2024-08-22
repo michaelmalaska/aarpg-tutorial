@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=16 format=3 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dapdr3ojo2pha" path="res://npc/npc_behavior_wander.tscn" id="8_f8c10"]
 [ext_resource type="Resource" uid="uid://csvi3x1wp3gy6" path="res://npc/00_npcs/npc_01.tres" id="8_fbvcf"]
 [ext_resource type="Resource" uid="uid://bqfxxks18ou8u" path="res://npc/00_npcs/npc_02.tres" id="8_yuemd"]
+[ext_resource type="PackedScene" uid="uid://b22o8rtjyby8c" path="res://Interactables/dialog/dialog_interaction.tscn" id="10_s1pmn"]
 [ext_resource type="PackedScene" uid="uid://dpenv0euqqlkg" path="res://npc/npc_behavior_patrol.tscn" id="11_q675y"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_text.gd" id="11_ufet7"]
+[ext_resource type="Resource" uid="uid://cdc3sykvmnn27" path="res://npc/00_npcs/00_hero.tres" id="12_2ebyk"]
 [ext_resource type="PackedScene" uid="uid://dyhn3j7qk4dqw" path="res://npc/patrol_location.tscn" id="12_sc27x"]
 
 [node name="02" type="Node2D"]
@@ -52,6 +55,25 @@ position = Vector2(113, 144)
 npc_resource = ExtResource("8_fbvcf")
 
 [node name="NpcBehaviorWander" parent="NPC" instance=ExtResource("8_f8c10")]
+
+[node name="DialogInteraction" parent="NPC" instance=ExtResource("10_s1pmn")]
+enabled = true
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_ufet7")
+text = "
+Hi, [b]Hero[/b] is that you?"
+
+[node name="DialogText2" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_ufet7")
+text = "
+[wave]Heck yeah it's me![/wave]"
+npc_info = ExtResource("12_2ebyk")
+
+[node name="DialogText3" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_ufet7")
+text = "Nice bro!
+Happy to have a hero!"
 
 [node name="NPC2" parent="." instance=ExtResource("7_62xuh")]
 position = Vector2(329, 144)

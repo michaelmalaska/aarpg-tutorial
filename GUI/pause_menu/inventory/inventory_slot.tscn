@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dndwapovgam4d"]
+[gd_scene load_steps=5 format=3 uid="uid://dndwapovgam4d"]
 
 [ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="1_kg6hg"]
 [ext_resource type="Script" path="res://GUI/pause_menu/inventory/scripts/inventory_slot_ui.gd" id="1_tj4td"]
+[ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="3_egami"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5lii"]
 atlas = ExtResource("1_kg6hg")
@@ -24,8 +25,9 @@ stretch_mode = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
+offset_top = -2.0
 offset_right = 30.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 8
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("3_egami")
 text = "99"
 horizontal_alignment = 2
