@@ -202,7 +202,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.0656667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
@@ -232,7 +232,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0.05)
+"times": PackedFloat32Array(0)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -282,7 +282,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.0656667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
@@ -312,7 +312,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0.05)
+"times": PackedFloat32Array(0)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -362,7 +362,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.0656667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
@@ -392,7 +392,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0.05)
+"times": PackedFloat32Array(0)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -492,7 +492,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.765667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
@@ -536,7 +536,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.765667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
@@ -580,7 +580,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.765667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],

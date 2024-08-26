@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bywqqrmmqtcpk"]
+[gd_scene load_steps=9 format=3 uid="uid://bywqqrmmqtcpk"]
 
 [ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_uh5g0"]
 [ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="2_6f15s"]
+[ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="2_bhofp"]
 [ext_resource type="Script" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="3_kwke8"]
 [ext_resource type="PackedScene" uid="uid://dndwapovgam4d" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_x4v76"]
 [ext_resource type="Resource" uid="uid://djd6vwckdo4ya" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_cwt50"]
@@ -68,11 +69,12 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -201.0
 offset_top = 23.0
-offset_right = -22.0
+offset_right = -18.0
 offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("2_bhofp")
+text = "example description"
 horizontal_alignment = 1
 autowrap_mode = 2
 
