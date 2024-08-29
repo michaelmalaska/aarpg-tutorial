@@ -96,3 +96,9 @@ wait_time = 1.0
 [node name="PatrolLocation4" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("12_sc27x")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(-74, 0)
+
+[node name="DialogInteraction" parent="NPC2" instance=ExtResource("10_s1pmn")]
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("11_ufet7")
+text = "Hi! How's Hero?"
