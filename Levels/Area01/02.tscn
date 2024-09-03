@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=18 format=3 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_text.gd" id="11_ufet7"]
 [ext_resource type="Resource" uid="uid://cdc3sykvmnn27" path="res://npc/00_npcs/00_hero.tres" id="12_2ebyk"]
 [ext_resource type="PackedScene" uid="uid://dyhn3j7qk4dqw" path="res://npc/patrol_location.tscn" id="12_sc27x"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_as0ht"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_lam8a"]
 
 [node name="02" type="Node2D"]
 y_sort_enabled = true
@@ -101,4 +103,27 @@ position = Vector2(-74, 0)
 
 [node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
 script = ExtResource("11_ufet7")
-text = "Hi! How's Hero?"
+text = "Yo! Hero! Will you help retreive my magical flute from the dark dungeon?"
+
+[node name="DialogChoice" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("16_as0ht")
+
+[node name="DialogBranch" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+script = ExtResource("17_lam8a")
+text = "Count on it!"
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_ufet7")
+text = "Thank you dear hero! You are a true specimen!"
+
+[node name="DialogText2" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_ufet7")
+text = "Oh, and be careful of the evil wizard who lurks in the dungeon!"
+
+[node name="DialogBranch2" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+script = ExtResource("17_lam8a")
+text = "NO!"
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("11_ufet7")
+text = "Geez! Some lousy hero you are...."

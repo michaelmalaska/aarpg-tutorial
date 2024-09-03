@@ -7,6 +7,7 @@ signal letter_added( letter : String )
 
 var is_active : bool = false
 var text_in_progress : bool = false
+var waiting_for_choice : bool = false
 
 var text_speed : float = 0.02
 var text_length : int = 0
@@ -24,6 +25,7 @@ var dialog_item_index : int = 0
 @onready var dialog_progress_indicator_label: Label = $DialogUI/DialogProgressIndicator/Label
 @onready var timer: Timer = $DialogUI/Timer
 @onready var audio_stream_player: AudioStreamPlayer = $DialogUI/AudioStreamPlayer
+@onready var choice_options : VBoxContainer = $DialogUI/VBoxContainer
 
 
 
@@ -55,6 +57,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			text_in_progress = false
 			show_dialog_button_indicator( true )
 			return
+		elif waiting_for_choice == true:
+			return
+		
 		dialog_item_index += 1
 		if dialog_item_index < dialog_items.size():
 			start_dialog()
@@ -81,6 +86,7 @@ func show_dialog( _items : Array[ DialogItem ] ) -> void:
 ## Hide Dialog System UI
 func hide_dialog() -> void:
 	is_active = false
+	choice_options.visible = false
 	dialog_ui.visible = false
 	dialog_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().paused = false
@@ -91,10 +97,26 @@ func hide_dialog() -> void:
 
 ## Initialize UI variables for a new Dialog Interaction
 func start_dialog() -> void:
+	waiting_for_choice = false
 	show_dialog_button_indicator( false )
 	var _d : DialogItem = dialog_items[ dialog_item_index ]
-	set_dialog_data( _d )
 	
+	if _d is DialogText:
+		set_dialog_text( _d as DialogText )
+	elif _d is DialogChoice:
+		set_dialog_choice( _d as DialogChoice )
+	
+	pass
+
+
+
+## Set dialog and NPC variables, etc based on dialog item parameters.
+## Once set, start text typing timer
+func set_dialog_text( _d : DialogText ) -> void:
+	content.text = _d.text
+	name_label.text = _d.npc_info.npc_name
+	portrait_sprite.texture = _d.npc_info.portrait
+	portrait_sprite.audio_pitch_base = _d.npc_info.dialog_audio_pitch
 	content.visible_characters = 0
 	text_length = content.get_total_character_count()
 	plain_text = content.get_parsed_text()
@@ -104,8 +126,34 @@ func start_dialog() -> void:
 
 
 
+## Set dialog choice UI based on parameters
+func set_dialog_choice( _d : DialogChoice ) -> void:
+	choice_options.visible = true
+	waiting_for_choice = true
+	for c in choice_options.get_children():
+		c.queue_free()
+	
+	for i in _d.dialog_branches.size():
+		var _new_choice : Button = Button.new()
+		_new_choice.text = _d.dialog_branches[ i ].text
+		_new_choice.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_new_choice.pressed.connect( _dialog_choice_selected.bind( _d.dialog_branches[ i ] ) )
+		choice_options.add_child( _new_choice )
+	
+	await get_tree().process_frame
+	choice_options.get_child( 0 ).grab_focus()
+	pass
+
+
+
+func _dialog_choice_selected( _d : DialogBranch ) -> void:
+	choice_options.visible = false
+	show_dialog( _d.dialog_items )
+	pass
+
+
+
 func _on_timer_timeout() -> void:
-	#print("_on_timer_timeout")
 	content.visible_characters += 1
 	if content.visible_characters <= text_length:
 		letter_added.emit( plain_text[ content.visible_characters - 1 ] )
@@ -116,15 +164,7 @@ func _on_timer_timeout() -> void:
 	pass
 
 
-## Set dialog and NPC variables, etc based on dialog item parameters
-func set_dialog_data( _d : DialogItem ) -> void:
-	if _d is DialogText:
-		content.text = _d.text
-	name_label.text = _d.npc_info.npc_name
-	portrait_sprite.texture = _d.npc_info.portrait
-	#print("audio_pitch: ", _d.npc_info.dialog_audio_pitch)
-	portrait_sprite.audio_pitch_base = _d.npc_info.dialog_audio_pitch
-	pass
+
 
 
 
