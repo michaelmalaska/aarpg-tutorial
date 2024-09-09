@@ -64,6 +64,7 @@ npc_resource = ExtResource("8_fbvcf")
 script = ExtResource("11_ufet7")
 text = "
 Hi, [b]Hero[/b] is that you?"
+npc_info = ExtResource("8_fbvcf")
 
 [node name="DialogText2" type="Node" parent="NPC/DialogInteraction"]
 script = ExtResource("11_ufet7")
@@ -75,6 +76,7 @@ npc_info = ExtResource("12_2ebyk")
 script = ExtResource("11_ufet7")
 text = "Nice bro!
 Happy to have a hero!"
+npc_info = ExtResource("8_fbvcf")
 
 [node name="NPC2" parent="." instance=ExtResource("7_62xuh")]
 position = Vector2(329, 144)
@@ -103,27 +105,36 @@ position = Vector2(-74, 0)
 
 [node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
 script = ExtResource("11_ufet7")
-text = "Yo! Hero! Will you help retreive my magical flute from the dark dungeon?"
+text = "Yo! Hero! Will you help retreive my
+magical flute from the dark dungeon?
+Please, pretty please?"
+npc_info = ExtResource("8_yuemd")
 
 [node name="DialogChoice" type="Node" parent="NPC2/DialogInteraction"]
 script = ExtResource("16_as0ht")
+npc_info = ExtResource("8_yuemd")
 
 [node name="DialogBranch" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
 script = ExtResource("17_lam8a")
-text = "Count on it!"
+text = "You can count on it!"
+npc_info = ExtResource("8_yuemd")
 
 [node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
 script = ExtResource("11_ufet7")
 text = "Thank you dear hero! You are a true specimen!"
+npc_info = ExtResource("8_yuemd")
 
 [node name="DialogText2" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
 script = ExtResource("11_ufet7")
 text = "Oh, and be careful of the evil wizard who lurks in the dungeon!"
+npc_info = ExtResource("8_yuemd")
 
 [node name="DialogBranch2" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
 script = ExtResource("17_lam8a")
-text = "NO!"
+text = "NO! You're crazy bananas!"
+npc_info = ExtResource("8_yuemd")
 
 [node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch2"]
 script = ExtResource("11_ufet7")
 text = "Geez! Some lousy hero you are...."
+npc_info = ExtResource("8_yuemd")
