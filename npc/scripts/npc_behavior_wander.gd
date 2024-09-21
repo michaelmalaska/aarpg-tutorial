@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 
-func _process(delta: float) -> void:
+func _process( _delta: float ) -> void:
 	if Engine.is_editor_hint():
 		return
 	if abs( global_position.distance_to( original_position ) ) > wander_range * 32:
