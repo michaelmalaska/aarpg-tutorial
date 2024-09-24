@@ -37,5 +37,9 @@ size = 3
 side = 2
 
 [node name="Goblin" parent="." instance=ExtResource("5_xqwo5")]
-position = Vector2(252, 246)
+position = Vector2(60, 263)
+hp = 1
+
+[node name="Goblin2" parent="." instance=ExtResource("5_xqwo5")]
+position = Vector2(407, 106)
 hp = 1

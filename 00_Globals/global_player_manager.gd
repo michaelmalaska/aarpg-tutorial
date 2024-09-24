@@ -51,3 +51,8 @@ func unparent_player( _p : Node2D ) -> void:
 func play_audio( _audio : AudioStream ) -> void:
 	player.audio.stream = _audio
 	player.audio.play()
+
+
+
+func emit_interact_pressed() -> void:
+	interact_pressed.emit()
