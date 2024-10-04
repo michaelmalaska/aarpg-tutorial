@@ -1,0 +1,11 @@
+Episode 39 - Pick up and Throw Tutorial
+---------------------------------------
+
+Goal: Create a modular "throwable" node that we can use to make objects throwable!
+
+Requirements:
+	1) Must be modular so it is re-useable
+	2) Player must have lift and carry states
+	2a) Player can walk while carrying object
+	3) Throwables should be able to damage enemies
+	4) Player should drop throwable when taking damage

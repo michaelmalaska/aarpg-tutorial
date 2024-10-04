@@ -4,6 +4,7 @@ class_name PlayerStateMachine extends Node
 var states : Array[ State ]
 var prev_state : State
 var current_state : State
+var next_state : State
 
 
 # Called when the node enters the scene tree for the first time.
@@ -56,10 +57,11 @@ func change_state( new_state : State ) -> void:
 	if new_state == null || new_state == current_state:
 		return
 	
+	next_state = new_state
+	
 	if current_state:
 		current_state.exit()
 	
 	prev_state = current_state
 	current_state = new_state
 	current_state.enter()
-

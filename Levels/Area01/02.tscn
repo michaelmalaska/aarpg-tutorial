@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=19 format=3 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dyhn3j7qk4dqw" path="res://npc/patrol_location.tscn" id="12_sc27x"]
 [ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_as0ht"]
 [ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_lam8a"]
+[ext_resource type="PackedScene" uid="uid://cf0a8hxch6kfd" path="res://Props/pot/pot.tscn" id="18_gcr0t"]
 
 [node name="02" type="Node2D"]
 y_sort_enabled = true
@@ -138,3 +139,9 @@ npc_info = ExtResource("8_yuemd")
 script = ExtResource("11_ufet7")
 text = "Geez! Some lousy hero you are...."
 npc_info = ExtResource("8_yuemd")
+
+[node name="Pot" parent="." instance=ExtResource("18_gcr0t")]
+position = Vector2(144, 210)
+
+[node name="Pot2" parent="." instance=ExtResource("18_gcr0t")]
+position = Vector2(121, 210)
