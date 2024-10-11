@@ -1,11 +1,9 @@
-Episode 39 - Pick up and Throw Tutorial
----------------------------------------
+Episode 40 - GAME OVER MAN!
+---------------------------
 
-Goal: Create a modular "throwable" node that we can use to make objects throwable!
+Goal: Create a death state and game over screen.
 
 Requirements:
-	1) Must be modular so it is re-useable
-	2) Player must have lift and carry states
-	2a) Player can walk while carrying object
-	3) Throwables should be able to damage enemies
-	4) Player should drop throwable when taking damage
+	1) Player needs to be able to die.
+	2) Display a Game Over screen after player dies
+	3) Game over screen allows player to continue or go back to title
