@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://ji4kjoqm3nuh"]
+[gd_scene load_steps=84 format=3 uid="uid://ji4kjoqm3nuh"]
 
 [ext_resource type="Script" path="res://Player/scripts/player.gd" id="1_jeo53"]
 [ext_resource type="Texture2D" uid="uid://d3nmq8hjxv1d6" path="res://Player/Sprites/player_sprite.png" id="2_rl52y"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://Player/scripts/states/state_walk.gd" id="5_b2txu"]
 [ext_resource type="Texture2D" uid="uid://bqlto87dhifhn" path="res://Player/Sprites/spin_effect.png" id="6_5wwkf"]
 [ext_resource type="Script" path="res://Player/scripts/states/state_attack.gd" id="6_u4460"]
-[ext_resource type="Texture2D" uid="uid://cvm3p4rqs1a8y" path="res://Props/Sprites/Props.png" id="7_0pjaj"]
 [ext_resource type="AudioStream" uid="uid://djgew73osuei" path="res://Player/audio/SwordSwoosh.wav" id="8_7nq3f"]
 [ext_resource type="Script" path="res://Player/scripts/player_interactions_host.gd" id="10_aivbr"]
 [ext_resource type="PackedScene" uid="uid://cpvl4rru3x52v" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="10_kupm1"]
@@ -1503,6 +1502,7 @@ shape = SubResource("CircleShape2D_4noiw")
 debug_color = Color(1, 0.224, 0.173, 0)
 
 [node name="SpinEffectSprite2D" type="Sprite2D" parent="Sprite2D"]
+visible = false
 show_behind_parent = true
 texture = ExtResource("6_5wwkf")
 hframes = 8
@@ -1515,14 +1515,6 @@ libraries = {
 [node name="HeldItem" type="Node2D" parent="Sprite2D"]
 show_behind_parent = true
 position = Vector2(0, 20)
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/HeldItem"]
-visible = false
-position = Vector2(0, -9)
-texture = ExtResource("7_0pjaj")
-hframes = 16
-vframes = 3
-frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1565,6 +1557,7 @@ exhaust_audio = ExtResource("22_kd2bp")
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_draw_limits = true
 script = ExtResource("11_hn37x")
+shake_decay = 2.0
 
 [node name="Audio" type="Node2D" parent="."]
 
