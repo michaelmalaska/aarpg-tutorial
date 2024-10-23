@@ -31,13 +31,9 @@ DialogSystem="*res://GUI/dialog_system/dialog_system.tscn"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/window_width_override=1440
+window/size/window_height_override=810
 window/stretch/mode="viewport"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/juice_my_editor/plugin.cfg")
 
 [gui]
 
