@@ -1,9 +1,9 @@
-Episode 41 - CAMERA SHAKE!
---------------------------
+Episode 46 - BOSS HP Bar!
+-------------------------
 
-Goal: Create a camera shake feature.
+Goal: Create a re-useable/global HP bar for bosses or enemies.
 
 Requirements:
-	1) Camera shake function with parameters
-	2) Global Function to call and trigger a camera shake
-	3) Add camera shake to player and enemy damage
+	1) Global
+	2) Display name of enemy
+	3) Health Bar that is easy to update

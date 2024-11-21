@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqtig7m22cmju"]
+[gd_scene load_steps=14 format=3 uid="uid://bqtig7m22cmju"]
 
 [ext_resource type="Script" path="res://GUI/player_hud/player_hud.gd" id="1_bq1f2"]
 [ext_resource type="Texture2D" uid="uid://c214trc1y0053" path="res://GUI/player_hud/gui-health.png" id="2_rspwl"]
 [ext_resource type="PackedScene" uid="uid://cnikqj3ie6vv0" path="res://GUI/player_hud/heart_gui.tscn" id="3_j3qdg"]
 [ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="4_hv4g4"]
+[ext_resource type="Texture2D" uid="uid://gb4q1nfypaax" path="res://GUI/player_hud/boss-hp.png" id="5_3g2nf"]
+[ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="5_ig28m"]
 
 [sub_resource type="FontVariation" id="FontVariation_fnwo7"]
 base_font = ExtResource("4_hv4g4")
@@ -244,6 +246,14 @@ _data = {
 "show_game_over": SubResource("Animation_sr6ke")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jib3n"]
+atlas = ExtResource("5_3g2nf")
+region = Rect2(9, 40, 14, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd4ol"]
+atlas = ExtResource("5_3g2nf")
+region = Rect2(40, 40, 15, 15)
+
 [node name="PlayerHud" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_bq1f2")
@@ -402,6 +412,67 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_otxpv")
 }
+
+[node name="BossUI" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = 3.0
+offset_right = 85.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_jib3n")
+texture_progress = SubResource("AtlasTexture_sd4ol")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -6.0
+offset_right = 92.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_3g2nf")
+region_rect = Rect2(0, 0, 64, 30)
+patch_margin_left = 22
+patch_margin_right = 25
+axis_stretch_horizontal = 1
+
+[node name="Label" type="Label" parent="Control/BossUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = 8.0
+offset_right = 28.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_ig28m")
+text = "BOSS NAME"
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
