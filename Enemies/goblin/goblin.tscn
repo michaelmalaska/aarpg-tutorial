@@ -810,6 +810,7 @@ drops = Array[ExtResource("14_jdd1u")]([SubResource("Resource_qq6r0"), SubResour
 script = ExtResource("16_v3mb8")
 vision_area = NodePath("../../VisionArea")
 attack_area = NodePath("../../Sprite2D/AttackHurtBox")
+state_aggro_duration = 5.0
 next_state = NodePath("../Idle")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

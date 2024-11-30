@@ -42,7 +42,7 @@ position = Vector2(60, 263)
 hp = 1
 
 [node name="Goblin2" parent="." instance=ExtResource("5_xqwo5")]
-position = Vector2(407, 106)
+position = Vector2(393, 111)
 hp = 1
 
 [node name="Pot2" parent="." instance=ExtResource("7_y3q1t")]
