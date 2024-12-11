@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=7 format=3 uid="uid://cvnr3a38pmudn"]
+
+[ext_resource type="Script" path="res://quests/scripts/quest_reward_item.gd" id="1_vowv8"]
+[ext_resource type="Script" path="res://quests/scripts/quest_resource.gd" id="2_knyee"]
+[ext_resource type="Resource" uid="uid://cixpflhl0cjvo" path="res://Items/gem.tres" id="2_xpykv"]
+[ext_resource type="Resource" uid="uid://bi48vid6jl4ua" path="res://Items/potion.tres" id="3_dvdl3"]
+
+[sub_resource type="Resource" id="Resource_slc1x"]
+script = ExtResource("1_vowv8")
+item = ExtResource("2_xpykv")
+quantity = 100
+
+[sub_resource type="Resource" id="Resource_cvh1b"]
+script = ExtResource("1_vowv8")
+item = ExtResource("3_dvdl3")
+quantity = 5
+
+[resource]
+script = ExtResource("2_knyee")
+title = "Recover Lost Magical Flute"
+description = "Nero has tasked the hero with retreiveing his lost magical flute from the dark dungeon."
+steps = Array[String](["Find the Magical Flute", "Return Magical Flute to Nero"])
+reward_xp = 100
+reward_items = Array[ExtResource("1_vowv8")]([SubResource("Resource_slc1x"), SubResource("Resource_cvh1b")])

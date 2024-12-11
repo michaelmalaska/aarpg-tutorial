@@ -26,6 +26,7 @@ SceneTransition="*res://GUI/scene_transition/scene_transition.tscn"
 SaveManager="*res://00_Globals/global_save_manager.gd"
 PauseMenu="*res://GUI/pause_menu/pause_menu.tscn"
 DialogSystem="*res://GUI/dialog_system/dialog_system.tscn"
+QuestManager="*res://quests/scripts/global_quest_manager.gd"
 
 [display]
 
@@ -34,10 +35,6 @@ window/size/viewport_height=270
 window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="viewport"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/juice_my_editor/plugin.cfg")
 
 [gui]
 

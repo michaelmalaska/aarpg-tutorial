@@ -34,6 +34,8 @@ func _ready():
 	update_hp(99)
 	pass # Replace with function body.
 
+func change_sprite() -> void:
+	sprite.texture = load("res://path/to/sprite.png")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process( _delta ):
