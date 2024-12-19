@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=24 format=4 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -18,6 +18,11 @@
 [ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_as0ht"]
 [ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_lam8a"]
 [ext_resource type="PackedScene" uid="uid://cf0a8hxch6kfd" path="res://Props/pot/pot.tscn" id="18_gcr0t"]
+[ext_resource type="Resource" uid="uid://cvnr3a38pmudn" path="res://quests/recover_lost_flute.tres" id="19_2koiu"]
+[ext_resource type="PackedScene" uid="uid://ch2oxh3rsa2fr" path="res://Interactables/dungeon/pressure_plate.tscn" id="19_ti3ls"]
+[ext_resource type="PackedScene" uid="uid://b523kljtfiar7" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_mgke4"]
+[ext_resource type="Resource" uid="uid://cx38on0tnqdyi" path="res://quests/long_quest.tres" id="21_7aj2d"]
+[ext_resource type="PackedScene" uid="uid://cwby8egx8vwx2" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_vtf5b"]
 
 [node name="02" type="Node2D"]
 y_sort_enabled = true
@@ -121,6 +126,15 @@ script = ExtResource("17_lam8a")
 text = "You can count on it!"
 npc_info = ExtResource("8_yuemd")
 
+[node name="QuestAdvanceTrigger" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch" instance=ExtResource("20_mgke4")]
+position = Vector2(306, 135)
+signal_name = "selected"
+linked_quest = ExtResource("19_2koiu")
+settings_summary = "UPDATE QUEST:
+Quest: Recover Lost Magical Flute
+Step: 0 - N/A
+Complete: false"
+
 [node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
 script = ExtResource("11_ufet7")
 text = "Thank you dear hero! You are a true specimen!"
@@ -146,3 +160,67 @@ position = Vector2(144, 210)
 
 [node name="Pot2" parent="." instance=ExtResource("18_gcr0t")]
 position = Vector2(121, 210)
+
+[node name="PressurePlate" parent="." instance=ExtResource("19_ti3ls")]
+position = Vector2(282, 65)
+
+[node name="QuestAdvanceTrigger" parent="PressurePlate" instance=ExtResource("20_mgke4")]
+signal_name = "activated"
+linked_quest = ExtResource("21_7aj2d")
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 0 - N/A
+Complete: false"
+
+[node name="QuestActivatedSwitch" parent="." instance=ExtResource("23_vtf5b")]
+position = Vector2(321, 65)
+react_to_global_signal = true
+linked_quest = ExtResource("21_7aj2d")
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Checking if player has quest"
+
+[node name="PressurePlate2" parent="QuestActivatedSwitch" instance=ExtResource("19_ti3ls")]
+
+[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch/PressurePlate2" instance=ExtResource("20_mgke4")]
+signal_name = "activated"
+linked_quest = ExtResource("21_7aj2d")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 1 - Step 1
+Complete: false"
+
+[node name="QuestActivatedSwitch2" parent="." instance=ExtResource("23_vtf5b")]
+position = Vector2(359, 65)
+check_type = 2
+react_to_global_signal = true
+linked_quest = ExtResource("21_7aj2d")
+quest_step = 2
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Check if player is on step: step 2"
+
+[node name="PressurePlate3" parent="QuestActivatedSwitch2" instance=ExtResource("19_ti3ls")]
+
+[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch2/PressurePlate3" instance=ExtResource("20_mgke4")]
+signal_name = "activated"
+linked_quest = ExtResource("21_7aj2d")
+quest_step = 2
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 2 - step 2
+Complete: true"
+
+[node name="QuestActivatedSwitch3" parent="." instance=ExtResource("23_vtf5b")]
+position = Vector2(410, 123)
+check_type = 3
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("21_7aj2d")
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Checking if quest is complete"
+
+[node name="Pot" parent="QuestActivatedSwitch3" instance=ExtResource("18_gcr0t")]
