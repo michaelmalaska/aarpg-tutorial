@@ -50,3 +50,11 @@ func get_step() -> String:
 		return linked_quest.steps[ quest_step - 1 ].to_lower()
 	else:
 		return "N/A"
+
+
+
+func get_prev_step() -> String:
+	if quest_step <= get_step_count() and quest_step > 1:
+		return linked_quest.steps[ quest_step - 2 ]
+	else:
+		return "N/A"
