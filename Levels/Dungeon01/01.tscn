@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://fxcoynik8gug"]
+[gd_scene load_steps=12 format=4 uid="uid://fxcoynik8gug"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_p8h4r"]
 [ext_resource type="AudioStream" uid="uid://bss1hbkoufxql" path="res://Levels/music/example_music_03.ogg" id="2_sa7q0"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://vlpiuopcomwi" path="res://Levels/level_transition.tscn" id="4_bwwsp"]
 [ext_resource type="PackedScene" uid="uid://ch2oxh3rsa2fr" path="res://Interactables/dungeon/pressure_plate.tscn" id="5_hd3kv"]
 [ext_resource type="PackedScene" uid="uid://da4qq8gb0idce" path="res://Interactables/dungeon/barred_door.tscn" id="6_ffenb"]
+[ext_resource type="PackedScene" uid="uid://b523kljtfiar7" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="6_ndegm"]
+[ext_resource type="PackedScene" uid="uid://cwby8egx8vwx2" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="6_rsdf3"]
 [ext_resource type="PackedScene" uid="uid://b4jqibhvnwmda" path="res://Interactables/dungeon/pushable_statue.tscn" id="7_6thod"]
+[ext_resource type="Resource" uid="uid://cvnr3a38pmudn" path="res://quests/recover_lost_flute.tres" id="7_cweoc"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_p8h4r")
@@ -26,6 +29,25 @@ target_transition_area = "LevelTransition3"
 center_player = true
 side = 3
 
+[node name="QuestActivatedSwitch" parent="LevelTransition" instance=ExtResource("6_rsdf3")]
+check_type = 1
+remove_when_activated = true
+free_on_remove = true
+react_to_global_signal = true
+linked_quest = ExtResource("7_cweoc")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Recover Lost Magical Flute
+Checking if player has completed step: find the cave entrance"
+
+[node name="QuestAdvanceTrigger" parent="LevelTransition/QuestActivatedSwitch" instance=ExtResource("6_ndegm")]
+linked_quest = ExtResource("7_cweoc")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Recover Lost Magical Flute
+Step: 1 - find the cave entrance
+Complete: false"
+
 [node name="LevelTransition2" parent="." instance=ExtResource("4_bwwsp")]
 position = Vector2(256, 48)
 level = "res://Levels/Dungeon01/02.tscn"
@@ -38,7 +60,10 @@ position = Vector2(192, 112)
 position = Vector2(224, 55)
 
 [node name="PushableStatue" parent="." instance=ExtResource("7_6thod")]
-position = Vector2(319, 114)
+position = Vector2(320, 113)
+persistent = true
+persistent_location = Vector2(191, 114)
 
+[connection signal="entered_from_here" from="LevelTransition" to="LevelTransition/QuestActivatedSwitch/QuestAdvanceTrigger" method="advance_quest"]
 [connection signal="activated" from="PressurePlate" to="BarredDoor" method="open_door"]
 [connection signal="deactivated" from="PressurePlate" to="BarredDoor" method="close_door"]

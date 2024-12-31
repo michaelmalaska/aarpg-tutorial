@@ -1,6 +1,8 @@
 @tool
 class_name LevelTransition extends Area2D
 
+signal entered_from_here
+
 enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 
 @export_file( "*.tscn" ) var level
@@ -54,6 +56,7 @@ func _place_player() -> void:
 	if name != LevelManager.target_transition:
 		return
 	PlayerManager.set_player_position( global_position + LevelManager.position_offset )
+	entered_from_here.emit()
 
 
 func get_offset() -> Vector2:

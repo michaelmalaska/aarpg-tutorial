@@ -1,11 +1,9 @@
-Episode 47 - Enemy Obstacle Avoidance and Pathfinding
------------------------------------------------------
 
-Goal: Create a node that will help our enemies navigate around obstacles (and eachother),
-WITHOUT using the pathfinding system.
 
-Requirements:
-	1) Standalone node does most the work
-	2) No use of Pathfinding or Navigation nodes ( because I'm stubborn and weird )
-	3) Enemies avoid bumping into walls AND other enemies
-	4) Simple integration into chase state with minimal code changes
+
+X) Initiate quest with Nero
+X) Quest should make the cave/dungeon available
+--) Fixed the Statue
+3) Connect/integtrate the boss into the quest
+4) Add a discoverable magical flute item
+5) Complete the quest by returning the flute to Nero (NPC)

@@ -36,10 +36,6 @@ window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="viewport"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/juice_my_editor/plugin.cfg")
-
 [gui]
 
 theme/custom_font="res://GUI/fonts/Abaddon Light.ttf"
