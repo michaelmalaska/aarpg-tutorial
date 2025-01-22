@@ -36,6 +36,10 @@ window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/michael_games_editor_plugins/plugin.cfg")
+
 [gui]
 
 theme/custom_font="res://GUI/fonts/Abaddon Light.ttf"

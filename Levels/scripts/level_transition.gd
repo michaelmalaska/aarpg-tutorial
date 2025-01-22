@@ -40,6 +40,13 @@ func _ready() -> void:
 	
 	await LevelManager.level_loaded
 	
+	# Some extra physics frame awaits will avoid issues related to frame rate
+	# & physics process frame rate not syncing up... we had a bug where no matter
+	# what we did the collision would still sometimes happen at the players
+	# OLD position after loading on PC's running the game at 120 or 144fps
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	
 	monitoring = true
 	body_entered.connect( _player_entered )
 	

@@ -557,6 +557,7 @@ hp = 1
 [node name="Goblin2" parent="." instance=ExtResource("5_xqwo5")]
 position = Vector2(393, 111)
 hp = 1
+xp_reward = 50
 
 [node name="Pot2" parent="." instance=ExtResource("7_y3q1t")]
 position = Vector2(200, 215)

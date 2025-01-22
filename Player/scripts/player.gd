@@ -12,6 +12,16 @@ var invulnerable : bool = false
 var hp : int = 6
 var max_hp : int = 6
 
+var level : int = 1
+var xp : int = 0
+
+var attack : int = 1 :
+	set( v ):
+		attack = v
+		update_damage_values()
+
+var defense : int = 1
+
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer
@@ -32,10 +42,16 @@ func _ready():
 	state_machine.Initialize(self)
 	hit_box.damaged.connect( _take_damage )
 	update_hp(99)
-	pass # Replace with function body.
+	update_damage_values()
+	PlayerManager.player_leveled_up.connect( _on_player_leveled_up )
+	pass
+
+
 
 func change_sprite() -> void:
 	sprite.texture = load("res://path/to/sprite.png")
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process( _delta ):
@@ -95,7 +111,15 @@ func _take_damage( hurt_box : HurtBox ) -> void:
 		return
 	
 	if hp > 0:
-		update_hp( -hurt_box.damage )
+		var dmg : int = hurt_box.damage
+		
+		# Simple damage calculation that subtracts defense value
+		# will keep damage to a minimum of 1, so we will do an if check
+		# to allow 0 to still be passed by a hurt_box if needed
+		if dmg > 0:
+			dmg = clampi( dmg - defense, 1, dmg )
+		
+		update_hp( -dmg )
 		player_damaged.emit( hurt_box )
 	
 	pass
@@ -128,3 +152,15 @@ func pickup_item( _t : Throwable ) -> void:
 func revive_player() -> void:
 	update_hp( 99 )
 	state_machine.change_state( $StateMachine/Idle )
+
+
+
+func update_damage_values() -> void:
+	%AttackHurtBox.damage = attack
+	%ChargeSpinHurtBox.damage = attack * 2
+
+
+func _on_player_leveled_up() -> void:
+	effect_animation_player.play( "level_up" )
+	update_hp( max_hp )
+	pass

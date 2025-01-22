@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://bax0x2mswgnpw"]
+
+[ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="1_hqllu"]
+[ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="2_mrt70"]
+[ext_resource type="Texture2D" uid="uid://d3nmq8hjxv1d6" path="res://Player/Sprites/player_sprite.png" id="3_wm670"]
+[ext_resource type="Texture2D" uid="uid://dxda6pdclrpa" path="res://Player/Sprites/Shadow.png" id="4_fhs1n"]
+
+[node name="Blackboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -239.0
+offset_top = -98.0
+offset_right = 239.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.167356, 0.167356, 0.167356, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 46.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_hqllu")
+text = "Episode 57 /// Level Up Polish"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 85.0
+offset_top = 112.0
+offset_right = 164.0
+offset_bottom = 130.0
+text = "Fix Defects"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 85.0
+offset_top = 139.0
+offset_right = 244.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("2_mrt70")
+text = "- Level skipping
+  - Recursive function
+- Bug when max level reached"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(339, 159)
+texture = ExtResource("3_wm670")
+hframes = 16
+vframes = 8
+
+[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 0.788235)
+show_behind_parent = true
+position = Vector2(0, 20)
+texture = ExtResource("4_fhs1n")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -30.0
+offset_top = -47.0
+offset_right = 31.0
+offset_bottom = -29.0
+text = "Level Up!"

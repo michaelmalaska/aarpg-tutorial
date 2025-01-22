@@ -10,8 +10,12 @@ signal game_saved
 var current_save : Dictionary = {
 	scene_path = "",
 	player = {
+		level = 1,
+		xp = 0,
 		hp = 1,
 		max_hp = 1,
+		attack = 1,
+		defense = 1,
 		pos_x = 0,
 		pos_y = 0
 	},
@@ -55,6 +59,13 @@ func load_game() -> void:
 	
 	PlayerManager.set_player_position( Vector2( current_save.player.pos_x, current_save.player.pos_y ) )
 	PlayerManager.set_health( current_save.player.hp, current_save.player.max_hp )
+	
+	var p : Player = PlayerManager.player
+	p.level = current_save.player.level
+	p.xp = current_save.player.xp
+	p.attack = current_save.player.attack
+	p.defense = current_save.player.defense
+	
 	PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
 	QuestManager.current_quests = current_save.quests
 	
@@ -71,6 +82,10 @@ func update_player_data() -> void:
 	current_save.player.max_hp = p.max_hp
 	current_save.player.pos_x = p.global_position.x
 	current_save.player.pos_y = p.global_position.y
+	current_save.player.level = p.level
+	current_save.player.xp = p.xp
+	current_save.player.attack = p.attack
+	current_save.player.defense = p.defense
 
 
 func update_scene_path() -> void:
