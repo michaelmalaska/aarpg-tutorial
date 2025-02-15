@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EquipableItemData" load_steps=8 format=3 uid="uid://bi8j7ai8qulyp"]
+
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_lwxim"]
+[ext_resource type="Script" path="res://Items/scripts/equipable_item_modifier.gd" id="2_wb1vf"]
+[ext_resource type="Script" path="res://Items/scripts/equipable_item_data.gd" id="3_5l13n"]
+[ext_resource type="Texture2D" uid="uid://bd0c644w7wme2" path="res://Player/Sprites/player_sprite_sword_katana.png" id="4_fb1yt"]
+[ext_resource type="Texture2D" uid="uid://d2b30nmoynyc2" path="res://Items/sprites/gear.png" id="4_j813a"]
+
+[sub_resource type="Resource" id="Resource_n4711"]
+script = ExtResource("2_wb1vf")
+type = 1
+value = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1djdd"]
+atlas = ExtResource("4_j813a")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("3_5l13n")
+type = 0
+modifiers = Array[ExtResource("2_wb1vf")]([SubResource("Resource_n4711")])
+sprite_texture = ExtResource("4_fb1yt")
+name = "Katana"
+description = "A blade made from folded steel. Very Cutty!"
+texture = SubResource("AtlasTexture_1djdd")
+effects = Array[ExtResource("1_lwxim")]([])

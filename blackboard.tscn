@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bax0x2mswgnpw"]
+[gd_scene load_steps=8 format=3 uid="uid://bax0x2mswgnpw"]
 
 [ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="1_hqllu"]
 [ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="2_mrt70"]
-[ext_resource type="Texture2D" uid="uid://d3nmq8hjxv1d6" path="res://Player/Sprites/player_sprite.png" id="3_wm670"]
+[ext_resource type="Texture2D" uid="uid://d3nmq8hjxv1d6" path="res://Player/Sprites/player_sprite.png" id="3_re5mu"]
 [ext_resource type="Texture2D" uid="uid://dxda6pdclrpa" path="res://Player/Sprites/Shadow.png" id="4_fhs1n"]
+[ext_resource type="Texture2D" uid="uid://fg8lhaso7usk" path="res://Player/Sprites/player_sprite_sword.png" id="4_hy3r5"]
+[ext_resource type="Texture2D" uid="uid://bd0c644w7wme2" path="res://Player/Sprites/player_sprite_sword_katana.png" id="6_515mg"]
+[ext_resource type="Texture2D" uid="uid://ccbphnkvbmi6h" path="res://Player/Sprites/player_sprite_ninja_suit.png" id="7_p75mb"]
 
 [node name="Blackboard" type="Control"]
 layout_mode = 3
@@ -19,9 +22,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -239.0
-offset_top = -98.0
+offset_top = -103.0
 offset_right = 239.0
-offset_bottom = 98.0
+offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.167356, 0.167356, 0.167356, 1)
@@ -35,41 +38,105 @@ offset_bottom = 64.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_hqllu")
-text = "Episode 57 /// Level Up Polish"
+text = "Equipment /// Equipable Armor & Weapons"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 85.0
-offset_top = 112.0
-offset_right = 164.0
-offset_bottom = 130.0
-text = "Fix Defects"
+[node name="Label3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 88.0
+offset_right = 276.0
+offset_bottom = 252.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_mrt70")
+bbcode_enabled = true
+text = "[s][color=#999]01 // Equipable Item Resources[/color][/s]
 
-[node name="Label3" type="Label" parent="."]
-offset_left = 85.0
-offset_top = 139.0
-offset_right = 244.0
-offset_bottom = 184.0
-theme_override_fonts/font = ExtResource("2_mrt70")
-text = "- Level skipping
-  - Recursive function
-- Bug when max level reached"
+[s][color=#999]02 // Inventory UI Updates[/color][/s]
+
+[s][color=#999]03 // Make Items Equipable
+      & Update Stats[/color][/s]
+
+04 // Implement Sprite Swapping
+      When Equipment Changes"
+fit_content = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(339, 159)
-texture = ExtResource("3_wm670")
+position = Vector2(303, 120)
+texture = ExtResource("3_re5mu")
 hframes = 16
 vframes = 8
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("4_hy3r5")
+hframes = 16
+vframes = 16
+frame = 1
 
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0, 0, 0, 0.788235)
 show_behind_parent = true
-position = Vector2(0, 20)
+position = Vector2(0, 21)
 texture = ExtResource("4_fhs1n")
 
-[node name="Label" type="Label" parent="Sprite2D"]
-offset_left = -30.0
-offset_top = -47.0
-offset_right = 31.0
-offset_bottom = -29.0
-text = "Level Up!"
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(370, 120)
+texture = ExtResource("3_re5mu")
+hframes = 16
+vframes = 8
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D2"]
+show_behind_parent = true
+texture = ExtResource("6_515mg")
+hframes = 16
+vframes = 16
+frame = 1
+
+[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D2"]
+modulate = Color(0, 0, 0, 0.788235)
+show_behind_parent = true
+position = Vector2(0, 21)
+texture = ExtResource("4_fhs1n")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(303, 192)
+texture = ExtResource("7_p75mb")
+hframes = 16
+vframes = 8
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D3"]
+show_behind_parent = true
+texture = ExtResource("4_hy3r5")
+hframes = 16
+vframes = 16
+frame = 1
+
+[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D3"]
+modulate = Color(0, 0, 0, 0.788235)
+show_behind_parent = true
+position = Vector2(0, 21)
+texture = ExtResource("4_fhs1n")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(370, 192)
+texture = ExtResource("7_p75mb")
+hframes = 16
+vframes = 8
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D4"]
+show_behind_parent = true
+texture = ExtResource("6_515mg")
+hframes = 16
+vframes = 16
+frame = 1
+
+[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D4"]
+modulate = Color(0, 0, 0, 0.788235)
+show_behind_parent = true
+position = Vector2(0, 21)
+texture = ExtResource("4_fhs1n")

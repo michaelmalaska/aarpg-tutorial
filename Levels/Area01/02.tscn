@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=30 format=4 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -24,6 +24,10 @@
 [ext_resource type="Resource" uid="uid://cx38on0tnqdyi" path="res://quests/long_quest.tres" id="21_7aj2d"]
 [ext_resource type="Script" path="res://quests/utility_nodes/quest_activated_switch.gd" id="21_dorfn"]
 [ext_resource type="PackedScene" uid="uid://cwby8egx8vwx2" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_vtf5b"]
+[ext_resource type="PackedScene" uid="uid://cpohuml8sje4u" path="res://Items/item_pickup/item_pickup.tscn" id="25_2vwhw"]
+[ext_resource type="Resource" uid="uid://d3oew63xq88d4" path="res://Items/a_ninja_suit.tres" id="26_wqp3k"]
+[ext_resource type="PackedScene" uid="uid://cldjbf03xmdqt" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="27_w21e7"]
+[ext_resource type="Resource" uid="uid://bi8j7ai8qulyp" path="res://Items/w_katana.tres" id="28_bb6dm"]
 
 [sub_resource type="GDScript" id="GDScript_ootk3"]
 script/source = "extends Node
@@ -113,16 +117,16 @@ position = Vector2(67.059, -12)
 
 [node name="PatrolLocation2" parent="NPC_NERO/NpcBehaviorPatrol" instance=ExtResource("12_sc27x")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(0.0589905, 49)
+position = Vector2(66.059, 61)
 
 [node name="PatrolLocation3" parent="NPC_NERO/NpcBehaviorPatrol" instance=ExtResource("12_sc27x")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(-144.941, 58)
+position = Vector2(-59.941, 62)
 wait_time = 1.0
 
 [node name="PatrolLocation4" parent="NPC_NERO/NpcBehaviorPatrol" instance=ExtResource("12_sc27x")]
 modulate = Color(0, 1, 1, 1)
-position = Vector2(-74, 0)
+position = Vector2(-47.941, -5)
 
 [node name="QuestActivatedSwitch" parent="NPC_NERO" instance=ExtResource("23_vtf5b")]
 remove_when_activated = true
@@ -314,3 +318,11 @@ Quest: Long Quest
 Checking if quest is complete"
 
 [node name="Pot" parent="QuestActivatedSwitch3" instance=ExtResource("18_gcr0t")]
+
+[node name="ItemPickup" parent="." instance=ExtResource("25_2vwhw")]
+position = Vector2(189, 100)
+item_data = ExtResource("26_wqp3k")
+
+[node name="Treasure-chest" parent="." instance=ExtResource("27_w21e7")]
+position = Vector2(111, 63)
+item_data = ExtResource("28_bb6dm")
