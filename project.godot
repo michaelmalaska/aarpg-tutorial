@@ -41,6 +41,11 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/michael_games_editor_plugins/plugin.cfg")
 
+[global_group]
+
+tilemaps="Tilemaps with footstep sounds, etc"
+new_group=""
+
 [gui]
 
 theme/custom_font="res://GUI/fonts/Abaddon Light.ttf"

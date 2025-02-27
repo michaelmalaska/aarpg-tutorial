@@ -202,7 +202,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0656667,
+"end_offset": 0.257202,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
@@ -282,7 +282,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0656667,
+"end_offset": 0.181811,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
@@ -362,7 +362,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0656667,
+"end_offset": 0.167547,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
@@ -702,6 +702,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_uy6og"]
 resource_name = "destroy"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

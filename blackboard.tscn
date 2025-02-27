@@ -1,30 +1,104 @@
-[gd_scene load_steps=8 format=3 uid="uid://bax0x2mswgnpw"]
+[gd_scene load_steps=12 format=3 uid="uid://bax0x2mswgnpw"]
 
 [ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="1_hqllu"]
 [ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="2_mrt70"]
 [ext_resource type="Texture2D" uid="uid://d3nmq8hjxv1d6" path="res://Player/Sprites/player_sprite.png" id="3_re5mu"]
 [ext_resource type="Texture2D" uid="uid://dxda6pdclrpa" path="res://Player/Sprites/Shadow.png" id="4_fhs1n"]
 [ext_resource type="Texture2D" uid="uid://fg8lhaso7usk" path="res://Player/Sprites/player_sprite_sword.png" id="4_hy3r5"]
-[ext_resource type="Texture2D" uid="uid://bd0c644w7wme2" path="res://Player/Sprites/player_sprite_sword_katana.png" id="6_515mg"]
-[ext_resource type="Texture2D" uid="uid://ccbphnkvbmi6h" path="res://Player/Sprites/player_sprite_ninja_suit.png" id="7_p75mb"]
+[ext_resource type="AudioStream" uid="uid://qjmhov4qtufs" path="res://GeneralNodes/footstep_audio_2d/footstep_03.wav" id="6_lq7ok"]
+
+[sub_resource type="GDScript" id="GDScript_e3mbi"]
+script/source = "@tool
+extends Sprite2D
+
+
+func _process( _delta: float ) -> void:
+	frame = $\"..\".frame
+"
+
+[sub_resource type="Animation" id="Animation_0e2bt"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 11, 10]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_lq7ok")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_lq7ok")
+}],
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_u5b7t"]
+resource_name = "default"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 11, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcfyo"]
+_data = {
+"RESET": SubResource("Animation_0e2bt"),
+"default": SubResource("Animation_u5b7t")
+}
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_iwck2"]
 
 [node name="Blackboard" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.898
+anchor_bottom = 2.941
+offset_left = -4.0
+offset_top = -3.0
+offset_right = -4.04004
+offset_bottom = -3.07007
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -239.0
-offset_top = -103.0
-offset_right = 239.0
-offset_bottom = 93.0
+anchors_preset = -1
+anchor_left = -0.279
+anchor_top = -0.353
+anchor_right = 1.246
+anchor_bottom = 1.234
+offset_left = 54.169
+offset_top = -47.718
+offset_right = 53.8939
+offset_bottom = -47.7961
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.167356, 0.167356, 0.167356, 1)
@@ -38,105 +112,65 @@ offset_bottom = 64.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_hqllu")
-text = "Equipment /// Equipable Armor & Weapons"
+theme_override_font_sizes/font_size = 32
+text = "Dynamic Footsteps Using
+Tileset Custom Data Layers"
 horizontal_alignment = 1
 
 [node name="Label3" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 73.0
-offset_top = 88.0
-offset_right = 276.0
-offset_bottom = 252.0
+offset_left = 208.0
+offset_top = 154.0
+offset_right = 453.0
+offset_bottom = 450.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_mrt70")
+theme_override_fonts/bold_font = ExtResource("1_hqllu")
 bbcode_enabled = true
-text = "[s][color=#999]01 // Equipable Item Resources[/color][/s]
+text = "[b]01 // Footstep Audio Player Scene[/b]
+Create re-useable footstep audio scene with 3 footstep sound types
 
-[s][color=#999]02 // Inventory UI Updates[/color][/s]
+[b]02 // Play Footstep Audio[/b]
+Connect footstep audio to player animations
 
-[s][color=#999]03 // Make Items Equipable
-      & Update Stats[/color][/s]
+[b]03 // Tileset Custom Data Layer[/b]
+Add custom data layer to tileset to identify footstep type per tile
 
-04 // Implement Sprite Swapping
-      When Equipment Changes"
+[b]04 // Connect The Dots[/b]
+Dynamically determine the footstep type as the player/entity moves using groups
+
+[b]05 // AudioStreamRandomizer[/b]
+Use AudioStream randomizer to make footsteps more organic sounding"
 fit_content = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(303, 120)
+position = Vector2(602, 287)
+scale = Vector2(3.85156, 3.85156)
 texture = ExtResource("3_re5mu")
 hframes = 16
 vframes = 8
-frame = 1
+frame = 9
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
 show_behind_parent = true
 texture = ExtResource("4_hy3r5")
 hframes = 16
 vframes = 16
-frame = 1
+frame = 9
+script = SubResource("GDScript_e3mbi")
 
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0, 0, 0, 0.788235)
 show_behind_parent = true
-position = Vector2(0, 21)
+position = Vector2(0, 19.9919)
 texture = ExtResource("4_fhs1n")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(370, 120)
-texture = ExtResource("3_re5mu")
-hframes = 16
-vframes = 8
-frame = 1
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_xcfyo")
+}
+autoplay = "default"
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D2"]
-show_behind_parent = true
-texture = ExtResource("6_515mg")
-hframes = 16
-vframes = 16
-frame = 1
-
-[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D2"]
-modulate = Color(0, 0, 0, 0.788235)
-show_behind_parent = true
-position = Vector2(0, 21)
-texture = ExtResource("4_fhs1n")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(303, 192)
-texture = ExtResource("7_p75mb")
-hframes = 16
-vframes = 8
-frame = 1
-
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D3"]
-show_behind_parent = true
-texture = ExtResource("4_hy3r5")
-hframes = 16
-vframes = 16
-frame = 1
-
-[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D3"]
-modulate = Color(0, 0, 0, 0.788235)
-show_behind_parent = true
-position = Vector2(0, 21)
-texture = ExtResource("4_fhs1n")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(370, 192)
-texture = ExtResource("7_p75mb")
-hframes = 16
-vframes = 8
-frame = 1
-
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D4"]
-show_behind_parent = true
-texture = ExtResource("6_515mg")
-hframes = 16
-vframes = 16
-frame = 1
-
-[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D4"]
-modulate = Color(0, 0, 0, 0.788235)
-show_behind_parent = true
-position = Vector2(0, 21)
-texture = ExtResource("4_fhs1n")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
+stream = SubResource("AudioStreamPolyphonic_iwck2")
+volume_db = -80.0
