@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dniwwljfut8d"]
 
-[ext_resource type="Script" path="res://addons/michael_games_editor_plugins/juice_notifs.gd" id="1_shweo"]
+[ext_resource type="Script" uid="uid://3jcw0bumjb4f" path="res://addons/michael_games_editor_plugins/juice_notifs.gd" id="1_shweo"]
 [ext_resource type="FontFile" uid="uid://brgumcgqqwy6" path="res://addons/michael_games_editor_plugins/assets/fonts/Oswald-VariableFont_wght.ttf" id="2_mitp7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4m20"]
@@ -92,9 +92,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mkack"]
 _data = {
-"RESET": SubResource("Animation_lh4ju"),
-"default": SubResource("Animation_rxd6s"),
-"show_notification": SubResource("Animation_5lo83")
+&"RESET": SubResource("Animation_lh4ju"),
+&"default": SubResource("Animation_rxd6s"),
+&"show_notification": SubResource("Animation_5lo83")
 }
 
 [node name="JuiceNotifs" type="Control"]

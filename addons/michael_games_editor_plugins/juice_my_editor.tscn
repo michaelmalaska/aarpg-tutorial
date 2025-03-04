@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://uqogtk7q00he"]
 
-[ext_resource type="Script" path="res://addons/michael_games_editor_plugins/juice_my_editor_node.gd" id="1_lggn6"]
+[ext_resource type="Script" uid="uid://7kgvmvfhnacx" path="res://addons/michael_games_editor_plugins/juice_my_editor_node.gd" id="1_lggn6"]
 
 [node name="JuiceMyEditor" type="Control"]
 layout_mode = 3

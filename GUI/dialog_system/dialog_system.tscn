@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://bo1pysxnmi4w5"]
 
-[ext_resource type="Script" path="res://GUI/dialog_system/scripts/dialog_system.gd" id="1_m1r47"]
+[ext_resource type="Script" uid="uid://bffsawinvj4do" path="res://GUI/dialog_system/scripts/dialog_system.gd" id="1_m1r47"]
 [ext_resource type="Texture2D" uid="uid://be3gd407wfvy4" path="res://GUI/dialog_system/sprites/text-bubble.png" id="2_a1ak0"]
 [ext_resource type="FontFile" uid="uid://ufo0hj0jkl1o" path="res://GUI/fonts/Abaddon Light.ttf" id="3_jt0ie"]
 [ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="4_pqg3w"]
 [ext_resource type="Texture2D" uid="uid://cbjnt02b5xojv" path="res://npc/sprites/portraits/npc_portrait_01.png" id="5_11hk7"]
-[ext_resource type="Script" path="res://GUI/dialog_system/scripts/dialog_portrait.gd" id="6_b4g7u"]
+[ext_resource type="Script" uid="uid://ods08yjoggjt" path="res://GUI/dialog_system/scripts/dialog_portrait.gd" id="6_b4g7u"]
 [ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="6_jqsda"]
 [ext_resource type="AudioStream" uid="uid://dhn5vek5sbvej" path="res://GUI/dialog_system/audio/voice_blip.wav" id="6_tk3n4"]
 [ext_resource type="Theme" uid="uid://bcedcxsjxlw4m" path="res://GUI/dialog_system/dialog_choice_theme.tres" id="9_l2x2x"]
@@ -73,8 +73,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7jo6n"]
 _data = {
-"RESET": SubResource("Animation_fs73m"),
-"default": SubResource("Animation_scxp7")
+&"RESET": SubResource("Animation_fs73m"),
+&"default": SubResource("Animation_scxp7")
 }
 
 [node name="DialogSystem" type="CanvasLayer"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkahyrrrdtwhv"]
 
-[ext_resource type="Script" path="res://GeneralNodes/footstep_audio_2d/footstep_audio_2d.gd" id="1_02ak3"]
+[ext_resource type="Script" uid="uid://i1k3uiqi4g32" path="res://GeneralNodes/footstep_audio_2d/footstep_audio_2d.gd" id="1_02ak3"]
 [ext_resource type="AudioStream" uid="uid://qjmhov4qtufs" path="res://GeneralNodes/footstep_audio_2d/footstep_03.wav" id="1_03fn2"]
 [ext_resource type="AudioStream" uid="uid://dsi77t43iegk7" path="res://GeneralNodes/footstep_audio_2d/footstep_02.wav" id="3_p0pye"]
 [ext_resource type="AudioStream" uid="uid://d0s7c4x6vvv8r" path="res://GeneralNodes/footstep_audio_2d/footstep_01.wav" id="4_mynmk"]

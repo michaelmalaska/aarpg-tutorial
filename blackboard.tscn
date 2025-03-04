@@ -71,11 +71,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xcfyo"]
 _data = {
-"RESET": SubResource("Animation_0e2bt"),
-"default": SubResource("Animation_u5b7t")
+&"RESET": SubResource("Animation_0e2bt"),
+&"default": SubResource("Animation_u5b7t")
 }
 
-[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_iwck2"]
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_er0on"]
 
 [node name="Blackboard" type="Control"]
 layout_mode = 3
@@ -113,34 +113,31 @@ grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_hqllu")
 theme_override_font_sizes/font_size = 32
-text = "Dynamic Footsteps Using
-Tileset Custom Data Layers"
+text = "Godot v4.4 Upgrade &
+Interactable Level Transition"
 horizontal_alignment = 1
 
 [node name="Label3" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 208.0
 offset_top = 154.0
-offset_right = 453.0
+offset_right = 467.0
 offset_bottom = 450.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_mrt70")
 theme_override_fonts/bold_font = ExtResource("1_hqllu")
 bbcode_enabled = true
-text = "[b]01 // Footstep Audio Player Scene[/b]
-Create re-useable footstep audio scene with 3 footstep sound types
+text = "[b]01 // Update Project to Godot 4.4[/b]
+Open project in Godot v4.4, and let it do it's thing!
 
-[b]02 // Play Footstep Audio[/b]
-Connect footstep audio to player animations
+[b]02 // Explore the new \"Game\"
+tab and features [/b]
+Run the game, embed the game window, and test some in-game editing features
 
-[b]03 // Tileset Custom Data Layer[/b]
-Add custom data layer to tileset to identify footstep type per tile
-
-[b]04 // Connect The Dots[/b]
-Dynamically determine the footstep type as the player/entity moves using groups
-
-[b]05 // AudioStreamRandomizer[/b]
-Use AudioStream randomizer to make footsteps more organic sounding"
+[b]03 // Create a new
+Level Transition node[/b]
+Create a new version of the level transition node that will work via interaction press instead of player enter.
+"
 fit_content = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -167,10 +164,10 @@ texture = ExtResource("4_fhs1n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_xcfyo")
+&"": SubResource("AnimationLibrary_xcfyo")
 }
 autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
-stream = SubResource("AudioStreamPolyphonic_iwck2")
+stream = SubResource("AudioStreamPolyphonic_er0on")
 volume_db = -80.0

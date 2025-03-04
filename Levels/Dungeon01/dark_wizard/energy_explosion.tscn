@@ -3,6 +3,21 @@
 [ext_resource type="Material" uid="uid://b7nld0pj1g7cq" path="res://shaders and materials/light_material.tres" id="1_iypnu"]
 [ext_resource type="Texture2D" uid="uid://droi6y3sam6u4" path="res://Levels/Dungeon01/dark_wizard/sprites/energy-explosion.png" id="1_yvi6d"]
 
+[sub_resource type="Animation" id="Animation_s8dtq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_bavui"]
 resource_name = "explode"
 step = 0.1
@@ -33,25 +48,10 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_s8dtq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6u5py"]
 _data = {
-"RESET": SubResource("Animation_s8dtq"),
-"explode": SubResource("Animation_bavui")
+&"RESET": SubResource("Animation_s8dtq"),
+&"explode": SubResource("Animation_bavui")
 }
 
 [node name="EnergyExplosion" type="Sprite2D"]

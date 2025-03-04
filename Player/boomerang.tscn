@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bwd2gdtxaj8gq"]
 
-[ext_resource type="Script" path="res://Player/scripts/abilities/boomerang.gd" id="1_uindf"]
+[ext_resource type="Script" uid="uid://ccuh77gau1yn8" path="res://Player/scripts/abilities/boomerang.gd" id="1_uindf"]
 [ext_resource type="AudioStream" uid="uid://cl4y2eoe5b40w" path="res://Player/audio/catch.wav" id="2_pmlvj"]
 [ext_resource type="Texture2D" uid="uid://c3fker5i76tw0" path="res://Player/Sprites/boomerang.png" id="2_yetih"]
 [ext_resource type="PackedScene" uid="uid://cpvl4rru3x52v" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="3_x1lys"]
@@ -48,8 +48,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ojvoo"]
 _data = {
-"RESET": SubResource("Animation_4oyoa"),
-"boomerang": SubResource("Animation_4qjrs")
+&"RESET": SubResource("Animation_4oyoa"),
+&"boomerang": SubResource("Animation_4qjrs")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5lxis"]

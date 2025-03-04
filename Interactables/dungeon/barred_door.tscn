@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://da4qq8gb0idce"]
 
-[ext_resource type="Script" path="res://Interactables/dungeon/scripts/barred_door.gd" id="1_ssw3l"]
+[ext_resource type="Script" uid="uid://c7bxikexw25sm" path="res://Interactables/dungeon/scripts/barred_door.gd" id="1_ssw3l"]
 [ext_resource type="Texture2D" uid="uid://cbcm3770x2tgd" path="res://Interactables/dungeon/dungeon_props.png" id="2_rs1ip"]
 [ext_resource type="AudioStream" uid="uid://c6xa7m21ojqaq" path="res://Interactables/dungeon/bars_open.wav" id="3_sirm0"]
 
@@ -176,11 +176,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ok8gs"]
 _data = {
-"RESET": SubResource("Animation_ps245"),
-"close_door": SubResource("Animation_4atcb"),
-"closed": SubResource("Animation_04wwv"),
-"open_door": SubResource("Animation_yccyb"),
-"opened": SubResource("Animation_2agtu")
+&"RESET": SubResource("Animation_ps245"),
+&"close_door": SubResource("Animation_4atcb"),
+&"closed": SubResource("Animation_04wwv"),
+&"open_door": SubResource("Animation_yccyb"),
+&"opened": SubResource("Animation_2agtu")
 }
 
 [node name="BarredDoor" type="Node2D"]

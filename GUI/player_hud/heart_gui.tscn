@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnikqj3ie6vv0"]
 
 [ext_resource type="Texture2D" uid="uid://c214trc1y0053" path="res://GUI/player_hud/gui-health.png" id="1_lgsf3"]
-[ext_resource type="Script" path="res://GUI/player_hud/heart_gui.gd" id="1_or207"]
+[ext_resource type="Script" uid="uid://drvk8t2g3khfa" path="res://GUI/player_hud/heart_gui.gd" id="1_or207"]
 
 [node name="Heart" type="Control"]
 custom_minimum_size = Vector2(9, 9)

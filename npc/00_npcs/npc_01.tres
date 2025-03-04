@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://csvi3x1wp3gy6"]
 
-[ext_resource type="Script" path="res://npc/scripts/npc_resource.gd" id="1_pd3hp"]
+[ext_resource type="Script" uid="uid://vdkoe1ao4p7n" path="res://npc/scripts/npc_resource.gd" id="1_pd3hp"]
 [ext_resource type="Texture2D" uid="uid://cbjnt02b5xojv" path="res://npc/sprites/portraits/npc_portrait_01.png" id="1_y8f7e"]
 [ext_resource type="Texture2D" uid="uid://2701oi0fk3t0" path="res://npc/sprites/npc_sprite.png" id="3_epnud"]
 

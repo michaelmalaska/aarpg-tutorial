@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwby8egx8vwx2"]
 
-[ext_resource type="Script" path="res://quests/utility_nodes/quest_activated_switch.gd" id="1_rtkku"]
+[ext_resource type="Script" uid="uid://cj17f33sisctc" path="res://quests/utility_nodes/quest_activated_switch.gd" id="1_rtkku"]
 [ext_resource type="Texture2D" uid="uid://fstjrvqapjrp" path="res://quests/utility_nodes/icons/quest_switch.png" id="2_hhn2m"]
 
 [node name="QuestActivatedSwitch" type="Node2D"]

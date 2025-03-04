@@ -114,8 +114,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vmley"]
 _data = {
-"Default": SubResource("Animation_ujwc8"),
-"RESET": SubResource("Animation_8t4uh")
+&"Default": SubResource("Animation_ujwc8"),
+&"RESET": SubResource("Animation_8t4uh")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s3iyw"]

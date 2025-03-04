@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cpohuml8sje4u"]
 
-[ext_resource type="Script" path="res://Items/item_pickup/item_pickup.gd" id="1_75i5r"]
+[ext_resource type="Script" uid="uid://efs3r0txblyn" path="res://Items/item_pickup/item_pickup.gd" id="1_75i5r"]
 [ext_resource type="AudioStream" uid="uid://dqkscpjlwebc0" path="res://Items/item_pickup/item_pickup.wav" id="2_6t52m"]
 [ext_resource type="Texture2D" uid="uid://dxda6pdclrpa" path="res://Player/Sprites/Shadow.png" id="2_fgx2o"]
 [ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="3_ag87d"]
@@ -44,8 +44,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bp77f"]
 _data = {
-"RESET": SubResource("Animation_ybcyp"),
-"default": SubResource("Animation_vk6xu")
+&"RESET": SubResource("Animation_ybcyp"),
+&"default": SubResource("Animation_vk6xu")
 }
 
 [node name="ItemPickup" type="CharacterBody2D"]

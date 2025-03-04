@@ -1,12 +1,12 @@
 [gd_scene load_steps=21 format=3 uid="uid://bqtig7m22cmju"]
 
-[ext_resource type="Script" path="res://GUI/player_hud/player_hud.gd" id="1_bq1f2"]
+[ext_resource type="Script" uid="uid://bw213tx6ibmkk" path="res://GUI/player_hud/player_hud.gd" id="1_bq1f2"]
 [ext_resource type="Texture2D" uid="uid://c214trc1y0053" path="res://GUI/player_hud/gui-health.png" id="2_rspwl"]
 [ext_resource type="PackedScene" uid="uid://cnikqj3ie6vv0" path="res://GUI/player_hud/heart_gui.tscn" id="3_j3qdg"]
 [ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="4_hv4g4"]
 [ext_resource type="Texture2D" uid="uid://gb4q1nfypaax" path="res://GUI/player_hud/boss-hp.png" id="5_3g2nf"]
 [ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="5_ig28m"]
-[ext_resource type="Script" path="res://GUI/player_hud/notifications.gd" id="7_jsk6e"]
+[ext_resource type="Script" uid="uid://c63jv3sl2cvvx" path="res://GUI/player_hud/notifications.gd" id="7_jsk6e"]
 [ext_resource type="Texture2D" uid="uid://dw1xqovae8s7k" path="res://GUI/player_hud/panel_notification.png" id="7_u3mfn"]
 [ext_resource type="AudioStream" uid="uid://c7me4bm1wcsua" path="res://GUI/player_hud/notification.wav" id="8_ksoy6"]
 
@@ -244,9 +244,9 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_otxpv"]
 _data = {
-"RESET": SubResource("Animation_odeg3"),
-"fade_to_black": SubResource("Animation_wuxml"),
-"show_game_over": SubResource("Animation_sr6ke")
+&"RESET": SubResource("Animation_odeg3"),
+&"fade_to_black": SubResource("Animation_wuxml"),
+&"show_game_over": SubResource("Animation_sr6ke")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jib3n"]
@@ -367,8 +367,8 @@ tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m4ebj"]
 _data = {
-"RESET": SubResource("Animation_gopuo"),
-"show_notification": SubResource("Animation_7w5y7")
+&"RESET": SubResource("Animation_gopuo"),
+&"show_notification": SubResource("Animation_7w5y7")
 }
 
 [node name="PlayerHud" type="CanvasLayer"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dndwapovgam4d"]
 
 [ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="1_kg6hg"]
-[ext_resource type="Script" path="res://GUI/pause_menu/inventory/scripts/inventory_slot_ui.gd" id="1_tj4td"]
+[ext_resource type="Script" uid="uid://dsy4e5o2emmtl" path="res://GUI/pause_menu/inventory/scripts/inventory_slot_ui.gd" id="1_tj4td"]
 [ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="3_egami"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5lii"]

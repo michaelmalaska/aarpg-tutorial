@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d4igjv570x7c4"]
 
 [ext_resource type="Texture2D" uid="uid://cvm3p4rqs1a8y" path="res://Props/Sprites/Props.png" id="1_8jp5y"]
-[ext_resource type="Script" path="res://Props/Plants/plant.gd" id="1_nve7k"]
+[ext_resource type="Script" uid="uid://dc2ole5s83b38" path="res://Props/Plants/plant.gd" id="1_nve7k"]
 [ext_resource type="PackedScene" uid="uid://c041sb462wu22" path="res://GeneralNodes/HitBox/hit_box.tscn" id="2_8ah36"]
 [ext_resource type="PackedScene" uid="uid://dp08lk5aufvli" path="res://Interactables/throwable/throwable.tscn" id="4_j013c"]
 
@@ -95,9 +95,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qcgu1"]
 _data = {
-"RESET": SubResource("Animation_qx88f"),
-"default": SubResource("Animation_fj6r5"),
-"destroy": SubResource("Animation_buhby")
+&"RESET": SubResource("Animation_qx88f"),
+&"default": SubResource("Animation_fj6r5"),
+&"destroy": SubResource("Animation_buhby")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k5f3"]

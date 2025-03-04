@@ -2,8 +2,8 @@
 
 [ext_resource type="Material" uid="uid://b7nld0pj1g7cq" path="res://shaders and materials/light_material.tres" id="1_p8f2t"]
 [ext_resource type="Texture2D" uid="uid://dpdp2jjw18el2" path="res://Levels/Dungeon01/dark_wizard/sprites/energy-beam.png" id="1_vsfc6"]
-[ext_resource type="Script" path="res://Levels/Dungeon01/dark_wizard/script/beam_attack.gd" id="1_yf4li"]
-[ext_resource type="Script" path="res://Levels/Dungeon01/dark_wizard/script/energy_beam_sprite.gd" id="3_jcr66"]
+[ext_resource type="Script" uid="uid://ce3swbbiuss7m" path="res://Levels/Dungeon01/dark_wizard/script/beam_attack.gd" id="1_yf4li"]
+[ext_resource type="Script" uid="uid://dap1fmwxi0uix" path="res://Levels/Dungeon01/dark_wizard/script/energy_beam_sprite.gd" id="3_jcr66"]
 [ext_resource type="Texture2D" uid="uid://cob1616ang8i5" path="res://Levels/Dungeon01/dark_wizard/sprites/energy-beam-large.png" id="4_odtba"]
 [ext_resource type="AudioStream" uid="uid://by5dsao4harb2" path="res://Levels/Dungeon01/dark_wizard/audio/boss_beam.wav" id="5_25err"]
 [ext_resource type="PackedScene" uid="uid://cpvl4rru3x52v" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="5_xbgyq"]
@@ -192,9 +192,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sed1j"]
 _data = {
-"RESET": SubResource("Animation_8qbmm"),
-"attack": SubResource("Animation_d2yyo"),
-"default": SubResource("Animation_1ey7v")
+&"RESET": SubResource("Animation_8qbmm"),
+&"attack": SubResource("Animation_d2yyo"),
+&"default": SubResource("Animation_1ey7v")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ifm4"]

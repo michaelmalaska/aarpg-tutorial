@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://btk4rthyd7y7m"]
 
-[ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_xc6vm"]
+[ext_resource type="Script" uid="uid://d2eyblbal755o" path="res://Levels/scripts/level.gd" id="1_xc6vm"]
 [ext_resource type="PackedScene" uid="uid://cq32mohonpsw3" path="res://Tile Maps/grass-tiles-01.tscn" id="2_ovi40"]
 [ext_resource type="PackedScene" uid="uid://dr4blo7ya448q" path="res://Levels/player_spawn.tscn" id="3_03eop"]
 [ext_resource type="PackedScene" uid="uid://cpohuml8sje4u" path="res://Items/item_pickup/item_pickup.tscn" id="5_f5g0s"]

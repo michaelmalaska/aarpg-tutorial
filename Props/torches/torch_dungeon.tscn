@@ -1,11 +1,26 @@
 [gd_scene load_steps=9 format=3 uid="uid://d4nhxau2t5qvx"]
 
 [ext_resource type="Texture2D" uid="uid://dhrq64arl0j8q" path="res://Props/torches/torch.png" id="1_4pmdv"]
-[ext_resource type="Script" path="res://Props/torches/torch_light_flicker.gd" id="2_n0ooy"]
+[ext_resource type="Script" uid="uid://d3qwjb8j7b0xq" path="res://Props/torches/torch_light_flicker.gd" id="2_n0ooy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vxmdq"]
 radius = 5.0
 height = 28.0
+
+[sub_resource type="Animation" id="Animation_jqa7e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_3pvhx"]
 resource_name = "default"
@@ -24,25 +39,10 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
-[sub_resource type="Animation" id="Animation_jqa7e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qn8pc"]
 _data = {
-"RESET": SubResource("Animation_jqa7e"),
-"default": SubResource("Animation_3pvhx")
+&"RESET": SubResource("Animation_jqa7e"),
+&"default": SubResource("Animation_3pvhx")
 }
 
 [sub_resource type="Gradient" id="Gradient_gaets"]
