@@ -13,7 +13,7 @@
 [ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="9_3wg7w"]
 [ext_resource type="PackedScene" uid="uid://dxfstusrlgtqu" path="res://GUI/pause_menu/quests/quest_step_item.tscn" id="10_5ptfk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_41pjg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3762"]
 atlas = ExtResource("2_6f15s")
 region = Rect2(96, 0, 32, 32)
 
@@ -22,7 +22,7 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-texture = SubResource("AtlasTexture_41pjg")
+texture = SubResource("AtlasTexture_u3762")
 texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0

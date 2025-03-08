@@ -1,6 +1,6 @@
 class_name NotificationUI extends Control
 
-var notifcation_queue : Array
+var notification_queue : Array
 
 @onready var panel_container: PanelContainer = $PanelContainer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -10,11 +10,11 @@ var notifcation_queue : Array
 
 func _ready() -> void:
 	panel_container.visible = false
-	animation_player.animation_finished.connect( notificaiton_animation_finished )
+	animation_player.animation_finished.connect( notification_animation_finished )
 
 
 func add_notification_to_queue( _title : String, _message : String ) -> void:
-	notifcation_queue.append({
+	notification_queue.append({
 			title = _title,
 			message = _message
 	})
@@ -25,7 +25,7 @@ func add_notification_to_queue( _title : String, _message : String ) -> void:
 
 
 func display_notification() -> void:
-	var _n = notifcation_queue.pop_front()
+	var _n = notification_queue.pop_front()
 	if _n == null:
 		return
 	title_label.text = _n.title
@@ -34,5 +34,5 @@ func display_notification() -> void:
 	pass
 
 
-func notificaiton_animation_finished( _a : String ) -> void:
+func notification_animation_finished( _a : String ) -> void:
 	display_notification()

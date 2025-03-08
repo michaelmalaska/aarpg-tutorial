@@ -528,7 +528,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/GameOver"]
 libraries = {
-"": SubResource("AnimationLibrary_otxpv")
+&"": SubResource("AnimationLibrary_otxpv")
 }
 
 [node name="BossUI" type="Control" parent="Control"]
@@ -630,7 +630,7 @@ autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Notification"]
 libraries = {
-"": SubResource("AnimationLibrary_m4ebj")
+&"": SubResource("AnimationLibrary_m4ebj")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

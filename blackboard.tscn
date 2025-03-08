@@ -1,11 +1,74 @@
-[gd_scene load_steps=12 format=3 uid="uid://bax0x2mswgnpw"]
+[gd_scene load_steps=23 format=3 uid="uid://bax0x2mswgnpw"]
 
 [ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="1_hqllu"]
+[ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="2_ed8lb"]
 [ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="2_mrt70"]
+[ext_resource type="Texture2D" uid="uid://cgsvi1hd4ou18" path="res://addons/michael_games_editor_plugins/assets/cursor.png" id="3_cpjwg"]
 [ext_resource type="Texture2D" uid="uid://d3nmq8hjxv1d6" path="res://Player/Sprites/player_sprite.png" id="3_re5mu"]
 [ext_resource type="Texture2D" uid="uid://dxda6pdclrpa" path="res://Player/Sprites/Shadow.png" id="4_fhs1n"]
 [ext_resource type="Texture2D" uid="uid://fg8lhaso7usk" path="res://Player/Sprites/player_sprite_sword.png" id="4_hy3r5"]
+[ext_resource type="Script" uid="uid://b34ukmw1e7pax" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="5_31a27"]
+[ext_resource type="Resource" uid="uid://djd6vwckdo4ya" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="6_ahm30"]
 [ext_resource type="AudioStream" uid="uid://qjmhov4qtufs" path="res://GeneralNodes/footstep_audio_2d/footstep_03.wav" id="6_lq7ok"]
+[ext_resource type="PackedScene" uid="uid://dndwapovgam4d" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="7_4f6wn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5lii"]
+atlas = ExtResource("2_ed8lb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_im1b2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0wdbn"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-31.5, -11.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyra3"]
+_data = {
+&"RESET": SubResource("Animation_im1b2"),
+&"new_animation": SubResource("Animation_0wdbn")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41pjg"]
+atlas = ExtResource("2_ed8lb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vwosj"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_41pjg")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
 
 [sub_resource type="GDScript" id="GDScript_e3mbi"]
 script/source = "@tool
@@ -75,7 +138,7 @@ _data = {
 &"default": SubResource("Animation_u5b7t")
 }
 
-[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_er0on"]
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_ed8lb"]
 
 [node name="Blackboard" type="Control"]
 layout_mode = 3
@@ -105,44 +168,173 @@ color = Color(0.167356, 0.167356, 0.167356, 1)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 46.0
-offset_bottom = 64.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_right = 79.0
+offset_bottom = 18.0
 grow_horizontal = 2
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 0.78882, 0.36847, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_hqllu")
-theme_override_font_sizes/font_size = 32
-text = "Godot v4.4 Upgrade &
-Interactable Level Transition"
+text = "Drag & Drop Inventory"
 horizontal_alignment = 1
 
 [node name="Label3" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 208.0
-offset_top = 154.0
-offset_right = 467.0
-offset_bottom = 450.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("2_mrt70")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.5
+offset_top = 72.0
+offset_right = 364.5
+offset_bottom = 330.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 0.971939, 0.743331, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/bold_font = ExtResource("1_hqllu")
 bbcode_enabled = true
-text = "[b]01 // Update Project to Godot 4.4[/b]
-Open project in Godot v4.4, and let it do it's thing!
+text = "[b]01 // Update InventorySlotUI[/b]
+  ★ Add basic \"drag\" state
+  ★ Add drag visual by duplicating the item texture
+  ★ Improve drag/use with some basic distance based checks
 
-[b]02 // Explore the new \"Game\"
-tab and features [/b]
-Run the game, embed the game window, and test some in-game editing features
+[b]02 // Update InventoryUI (pause menu) [/b]
+  ★ Connect to inventory slot UI item signals
+  ★ Handle \"mouse over\" of other items
+  ★ Handle item \"drop\" event
 
-[b]03 // Create a new
-Level Transition node[/b]
-Create a new version of the level transition node that will work via interaction press instead of player enter.
+[b]03 // Update InventoryData resource[/b]
+  ★ Add new \"swap_items_by_index\" function
 "
 fit_content = true
 
+[node name="InventorySlot" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 674.0
+offset_top = 75.0
+offset_right = 706.0
+offset_bottom = 107.0
+scale = Vector2(2, 2)
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="InventorySlot"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_u5lii")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="InventorySlot"]
+self_modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_u5lii")
+stretch_mode = 3
+
+[node name="Cursor" type="Sprite2D" parent="InventorySlot/TextureRect2"]
+position = Vector2(23, 26)
+scale = Vector2(0.0237805, 0.0237805)
+texture = ExtResource("3_cpjwg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InventorySlot/TextureRect2"]
+libraries = {
+&"": SubResource("AnimationLibrary_jyra3")
+}
+autoplay = "new_animation"
+
+[node name="Label" type="Label" parent="InventorySlot"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 30.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("2_mrt70")
+text = "99"
+horizontal_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 173.0
+offset_right = 775.0
+offset_bottom = 333.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vwosj")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("5_31a27")
+data = ExtResource("6_ahm30")
+
+[node name="InventorySlot" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="PanelContainer/GridContainer" instance=ExtResource("7_4f6wn")]
+layout_mode = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(602, 287)
-scale = Vector2(3.85156, 3.85156)
+visible = false
+position = Vector2(717, 205)
+scale = Vector2(2, 2)
 texture = ExtResource("3_re5mu")
 hframes = 16
 vframes = 8
@@ -169,5 +361,5 @@ libraries = {
 autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
-stream = SubResource("AudioStreamPolyphonic_er0on")
+stream = SubResource("AudioStreamPolyphonic_ed8lb")
 volume_db = -80.0

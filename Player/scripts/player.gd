@@ -68,7 +68,7 @@ func _physics_process( _delta ):
 
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input( _event: InputEvent ) -> void:
 	#if event.is_action_pressed("test"):
 		#PlayerManager.shake_camera()
 	pass
