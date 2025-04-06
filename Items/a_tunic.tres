@@ -23,4 +23,5 @@ sprite_texture = ExtResource("4_kdgwd")
 name = "Tunic & Cape"
 description = "The tunic is clean and pressed, and the cape is oh-so-stylish."
 texture = SubResource("AtlasTexture_1djdd")
+cost = 150
 effects = Array[ExtResource("1_vstqj")]([])

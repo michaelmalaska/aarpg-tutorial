@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="EquipableItemData" load_steps=8 format=3 uid="uid://d3oew63xq88d4"]
+[gd_resource type="Resource" script_class="EquipableItemData" load_steps=9 format=3 uid="uid://d3oew63xq88d4"]
 
+[ext_resource type="Script" uid="uid://bwq22ry1guuwt" path="res://Items/item_effects/item_effect.gd" id="1_a7jn7"]
 [ext_resource type="Script" uid="uid://cvlavxf8cfh2r" path="res://Items/scripts/equipable_item_modifier.gd" id="2_13sgp"]
 [ext_resource type="Script" uid="uid://c5iq7u0bmbjjq" path="res://Items/scripts/equipable_item_data.gd" id="3_54557"]
 [ext_resource type="Texture2D" uid="uid://ccbphnkvbmi6h" path="res://Player/Sprites/player_sprite_ninja_suit.png" id="4_4ee28"]
@@ -28,4 +29,5 @@ name = "Ninja Suit"
 description = "This ninja suit is totally rad,
 and suprisingly comfy."
 texture = SubResource("AtlasTexture_1djdd")
-effects = null
+cost = 600
+effects = Array[ExtResource("1_a7jn7")]([])

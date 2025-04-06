@@ -106,6 +106,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -22.0
 offset_right = -22.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -117,9 +118,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -412.0
-offset_top = 120.0
+offset_top = 68.0
 offset_right = 412.0
-offset_bottom = 160.0
+offset_bottom = 95.0
 grow_horizontal = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_v4m20")
@@ -129,11 +130,12 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_mitp7")
 theme_override_font_sizes/font_size = 16
-text = "script: res://addons/michael_games_editor_plugins/juice_my_editor.gd"
+text = "script: ShortcutLabel : res://addons/michael_games_editor_plugins/shortcut_label.gd"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mkack")
+&"": SubResource("AnimationLibrary_mkack")
 }
 autoplay = "default"

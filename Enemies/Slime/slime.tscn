@@ -77,6 +77,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_a57nr"]
 resource_name = "destroy_down"
+length = 1.1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -122,11 +123,11 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.166383,
 "start_offset": 0.0,
 "stream": ExtResource("5_meub3")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/3/use_blend = true
 tracks/4/type = "audio"
@@ -169,6 +170,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_phi2e"]
 resource_name = "destroy_side"
+length = 1.1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -218,7 +220,7 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("5_meub3")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/3/use_blend = true
 tracks/4/type = "audio"
@@ -261,6 +263,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_hpyex"]
 resource_name = "destroy_up"
+length = 1.1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -310,7 +313,7 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("5_meub3")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/3/use_blend = true
 tracks/4/type = "audio"
@@ -486,7 +489,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.765667,
 "start_offset": 0.0,
 "stream": ExtResource("5_meub3")
 }],
@@ -542,7 +545,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.765667,
 "start_offset": 0.0,
 "stream": ExtResource("5_meub3")
 }],
@@ -598,7 +601,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.765667,
 "start_offset": 0.0,
 "stream": ExtResource("5_meub3")
 }],
@@ -820,7 +823,7 @@ shape = SubResource("CapsuleShape2D_vs0d0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dovdx")
+&"": SubResource("AnimationLibrary_dovdx")
 }
 autoplay = "idle_down"
 
@@ -858,5 +861,5 @@ hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DestroyEffectSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_w2pak")
+&"": SubResource("AnimationLibrary_w2pak")
 }

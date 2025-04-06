@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgnfq24oi7wg2"]
+
+[ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="1_5unjq"]
+[ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="1_bfbb1"]
+[ext_resource type="Script" uid="uid://cqqogeprsce2g" path="res://GUI/shop_menu/shop_item_button.gd" id="1_rm5x1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5unjq"]
+atlas = ExtResource("1_bfbb1")
+region = Rect2(0, 0, 32, 32)
+
+[node name="ShopItemButton" type="Button"]
+custom_minimum_size = Vector2(220, 36)
+script = ExtResource("1_rm5x1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 10.0
+offset_right = 174.0
+offset_bottom = 28.0
+text = "Label for the item so we can see what it is"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="PriceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 11.0
+offset_right = 211.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("1_5unjq")
+text = "999"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 32.0
+offset_bottom = 34.0
+texture = SubResource("AtlasTexture_5unjq")
+stretch_mode = 3

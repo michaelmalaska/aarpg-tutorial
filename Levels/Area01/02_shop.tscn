@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=4 uid="uid://2p13wtrmfvqv"]
+[gd_scene load_steps=15 format=4 uid="uid://2p13wtrmfvqv"]
 
 [ext_resource type="Script" uid="uid://d2eyblbal755o" path="res://Levels/scripts/level.gd" id="1_xgghs"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_u3xya"]
 [ext_resource type="PackedScene" uid="uid://diex2e34r23qo" path="res://Tile Maps/shop_tilemap_layer.tscn" id="4_5ajat"]
 [ext_resource type="PackedScene" uid="uid://dr4blo7ya448q" path="res://Levels/player_spawn.tscn" id="5_b5fy1"]
 [ext_resource type="PackedScene" uid="uid://vlpiuopcomwi" path="res://Levels/level_transition.tscn" id="7_4skut"]
+[ext_resource type="PackedScene" uid="uid://dc7eeqmi06iyj" path="res://Interactables/shopkeeper/shopkeeper.tscn" id="7_cdc6r"]
+[ext_resource type="Script" uid="uid://b405hrw22am82" path="res://Items/scripts/item_data.gd" id="8_54jjq"]
+[ext_resource type="Resource" uid="uid://prvahwyi1iha" path="res://Items/apple.tres" id="9_ktyg8"]
+[ext_resource type="Resource" uid="uid://d3oew63xq88d4" path="res://Items/a_ninja_suit.tres" id="10_qkluu"]
+[ext_resource type="Resource" uid="uid://bi48vid6jl4ua" path="res://Items/potion.tres" id="11_ena7o"]
+[ext_resource type="Resource" uid="uid://bsmrcd36bi0th" path="res://Items/w_iron_sword.tres" id="12_hqw0x"]
+[ext_resource type="Resource" uid="uid://bi8j7ai8qulyp" path="res://Items/w_katana.tres" id="13_7qqfa"]
+[ext_resource type="Resource" uid="uid://c0co5vj5hgk12" path="res://Items/stone.tres" id="14_offyj"]
 [ext_resource type="PackedScene" uid="uid://cf0a8hxch6kfd" path="res://Props/pot/pot.tscn" id="23_386ky"]
 
 [node name="02" type="Node2D"]
@@ -74,3 +82,7 @@ target_transition_area = "LevelTransition_Shop"
 center_player = true
 size = 1
 side = 3
+
+[node name="Shopkeeper" parent="." instance=ExtResource("7_cdc6r")]
+position = Vector2(333, 94)
+shop_inventory = Array[ExtResource("8_54jjq")]([ExtResource("9_ktyg8"), ExtResource("10_qkluu"), ExtResource("11_ena7o"), ExtResource("12_hqw0x"), ExtResource("13_7qqfa"), ExtResource("14_offyj")])

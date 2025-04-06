@@ -8,6 +8,7 @@ const FRAME_COUNT : int = 128
 
 func _ready() -> void:
 	PlayerManager.INVENTORY_DATA.equipment_changed.connect( _on_equipment_changed )
+	SaveManager.game_loaded.connect( _on_equipment_changed )
 	pass
 
 

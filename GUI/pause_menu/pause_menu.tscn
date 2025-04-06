@@ -32,25 +32,25 @@ texture_margin_bottom = 14.0
 atlas = ExtResource("6_dcvp3")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s1vjy"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvrss"]
 load_path = "res://.godot/imported/gear.png-05ec228c6bd652f530ec253f570f43fb.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwvth"]
-atlas = SubResource("CompressedTexture2D_s1vjy")
+atlas = SubResource("CompressedTexture2D_cvrss")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t6fnq"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgl3m"]
 load_path = "res://.godot/imported/gear.png-05ec228c6bd652f530ec253f570f43fb.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fi0tn"]
-atlas = SubResource("CompressedTexture2D_t6fnq")
+atlas = SubResource("CompressedTexture2D_fgl3m")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f26y2"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ak53x"]
 load_path = "res://.godot/imported/gear.png-05ec228c6bd652f530ec253f570f43fb.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ug6r6"]
-atlas = SubResource("CompressedTexture2D_f26y2")
+atlas = SubResource("CompressedTexture2D_ak53x")
 region = Rect2(16, 16, 16, 16)
 
 [node name="PauseMenu" type="CanvasLayer"]

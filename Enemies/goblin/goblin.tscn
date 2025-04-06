@@ -202,11 +202,11 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.257202,
+"end_offset": 0.0756667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/2/use_blend = true
 tracks/3/type = "audio"
@@ -232,7 +232,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -282,11 +282,11 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.181811,
+"end_offset": 0.0756667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/2/use_blend = true
 tracks/3/type = "audio"
@@ -312,7 +312,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -362,11 +362,11 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.167547,
+"end_offset": 0.0756667,
 "start_offset": 0.0,
 "stream": ExtResource("6_d7rmf")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/2/use_blend = true
 tracks/3/type = "audio"
@@ -392,7 +392,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("destroy"),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.01)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -780,7 +780,7 @@ shape = SubResource("CapsuleShape2D_vs0d0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dovdx")
+&"": SubResource("AnimationLibrary_dovdx")
 }
 autoplay = "idle_down"
 
@@ -826,7 +826,7 @@ hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DestroyEffectSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_w2pak")
+&"": SubResource("AnimationLibrary_w2pak")
 }
 
 [node name="VisionArea" parent="." instance=ExtResource("17_ti8pv")]

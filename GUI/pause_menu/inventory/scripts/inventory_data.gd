@@ -49,6 +49,8 @@ func connect_slots() -> void:
 
 
 func slot_changed() -> void:
+	if Engine.is_editor_hint():
+		return
 	for s in slots:
 		if s:
 			if s.quantity < 1:
@@ -181,3 +183,12 @@ func get_equipment_bonus( bonus_type : EquipableItemModifier.Type, compare : Equ
 				bonus += m.value
 	
 	return bonus
+
+
+func get_item_held_quantity( _item : ItemData ) -> int:
+	for slot in slots:
+		if slot:
+			if slot.item_data:
+				if slot.item_data == _item:
+					return slot.quantity
+	return 0

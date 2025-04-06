@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="EquipableItemData" load_steps=7 format=3 uid="uid://bi8j7ai8qulyp"]
+[gd_resource type="Resource" script_class="EquipableItemData" load_steps=8 format=3 uid="uid://bi8j7ai8qulyp"]
 
+[ext_resource type="Script" uid="uid://bwq22ry1guuwt" path="res://Items/item_effects/item_effect.gd" id="1_50xaj"]
 [ext_resource type="Script" uid="uid://cvlavxf8cfh2r" path="res://Items/scripts/equipable_item_modifier.gd" id="2_wb1vf"]
 [ext_resource type="Script" uid="uid://c5iq7u0bmbjjq" path="res://Items/scripts/equipable_item_data.gd" id="3_5l13n"]
 [ext_resource type="Texture2D" uid="uid://bd0c644w7wme2" path="res://Player/Sprites/player_sprite_sword_katana.png" id="4_fb1yt"]
@@ -16,10 +17,11 @@ region = Rect2(64, 0, 32, 32)
 
 [resource]
 script = ExtResource("3_5l13n")
-type = null
+type = 0
 modifiers = Array[ExtResource("2_wb1vf")]([SubResource("Resource_n4711")])
 sprite_texture = ExtResource("4_fb1yt")
 name = "Katana"
 description = "A blade made from folded steel. Very Cutty!"
 texture = SubResource("AtlasTexture_1djdd")
-effects = null
+cost = 500
+effects = Array[ExtResource("1_50xaj")]([])

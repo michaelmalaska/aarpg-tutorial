@@ -174,7 +174,7 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogUI/DialogProgressIndicator"]
 libraries = {
-"": SubResource("AnimationLibrary_7jo6n")
+&"": SubResource("AnimationLibrary_7jo6n")
 }
 autoplay = "default"
 
