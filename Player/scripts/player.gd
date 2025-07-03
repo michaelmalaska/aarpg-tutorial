@@ -23,6 +23,9 @@ var attack : int = 1 :
 var defense : int = 1
 var defense_bonus : int = 0
 
+var arrow_count : int = 10
+var bomb_count : int = 10
+
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer
 @onready var hit_box : HitBox = $HitBox

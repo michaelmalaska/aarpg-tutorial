@@ -11,3 +11,7 @@ script = ExtResource("1_a6bbh")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_xu4fk")]
 collision_mask = 256
+
+[node name="WallDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16

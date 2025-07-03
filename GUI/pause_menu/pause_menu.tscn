@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://bywqqrmmqtcpk"]
+[gd_scene load_steps=28 format=3 uid="uid://bywqqrmmqtcpk"]
 
 [ext_resource type="Script" uid="uid://ia628h6yaojv" path="res://GUI/pause_menu/pause_menu.gd" id="1_uh5g0"]
 [ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="2_6f15s"]
 [ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="2_bhofp"]
+[ext_resource type="Texture2D" uid="uid://d3c0c5218ryu2" path="res://Player/Sprites/ability-icons.png" id="3_cvrss"]
+[ext_resource type="Script" uid="uid://dyeetrelybj8g" path="res://GUI/pause_menu/inventory/scripts/gear_item_button.gd" id="3_fgl3m"]
 [ext_resource type="Script" uid="uid://b34ukmw1e7pax" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="3_kwke8"]
 [ext_resource type="PackedScene" uid="uid://dndwapovgam4d" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_x4v76"]
 [ext_resource type="Resource" uid="uid://djd6vwckdo4ya" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_cwt50"]
@@ -27,6 +29,22 @@ texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgl3m"]
+atlas = ExtResource("3_cvrss")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak53x"]
+atlas = ExtResource("3_cvrss")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00kwt"]
+atlas = ExtResource("3_cvrss")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oddi"]
+atlas = ExtResource("3_cvrss")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mwyn"]
 atlas = ExtResource("6_dcvp3")
@@ -93,11 +111,100 @@ current_tab = 0
 layout_mode = 2
 metadata/_tab_index = 0
 
+[node name="AbilityContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 27.0
+offset_right = 61.0
+offset_bottom = 187.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_d3jqj")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer"]
+layout_mode = 2
+
+[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "
+"
+script = ExtResource("3_fgl3m")
+description = "This boomerang will always return to you after thrown. It can grab items too!"
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_fgl3m")
+stretch_mode = 3
+
+[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "
+"
+script = ExtResource("3_fgl3m")
+description = "OOOh, this thing looks very grapply!"
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot2"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_ak53x")
+stretch_mode = 3
+
+[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "
+"
+script = ExtResource("3_fgl3m")
+description = "A trusty bow and arrow. Every adventurer needs one."
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_00kwt")
+stretch_mode = 3
+
+[node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -2.0
+offset_right = 30.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("2_bhofp")
+text = "99"
+
+[node name="InventorySlot4" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "
+"
+script = ExtResource("3_fgl3m")
+description = "These bombs have a 4 second fuse. Once you throw it stay back!"
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_1oddi")
+stretch_mode = 3
+
+[node name="BombCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -2.0
+offset_right = 30.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("2_bhofp")
+text = "99"
+
 [node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
 layout_mode = 0
-offset_left = 32.0
+offset_left = 70.0
 offset_top = 27.0
-offset_right = 228.0
+offset_right = 266.0
 offset_bottom = 187.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_d3jqj")
 
@@ -169,9 +276,9 @@ layout_mode = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory"]
 layout_mode = 0
-offset_left = 254.0
+offset_left = 274.0
 offset_top = 99.0
-offset_right = 450.0
+offset_right = 470.0
 offset_bottom = 187.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_d3jqj")
 
@@ -231,9 +338,9 @@ layout_mode = 2
 
 [node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("6_y6avm")]
 layout_mode = 0
-offset_left = 254.0
+offset_left = 274.0
 offset_top = 27.0
-offset_right = 450.0
+offset_right = 470.0
 offset_bottom = 86.0
 
 [node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory"]

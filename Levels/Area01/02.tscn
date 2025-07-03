@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=35 format=4 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" uid="uid://d2eyblbal755o" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -31,6 +31,8 @@
 [ext_resource type="Resource" uid="uid://bi48vid6jl4ua" path="res://Items/potion.tres" id="29_mdb57"]
 [ext_resource type="Resource" uid="uid://c0co5vj5hgk12" path="res://Items/stone.tres" id="30_gm670"]
 [ext_resource type="Resource" uid="uid://prvahwyi1iha" path="res://Items/apple.tres" id="31_fw76p"]
+[ext_resource type="PackedScene" uid="uid://c61baowgewycx" path="res://Interactables/arrow/arrow.tscn" id="33_gm670"]
+[ext_resource type="PackedScene" uid="uid://b7x3cvq6i0qvf" path="res://Enemies/Slime/slime.tscn" id="33_mdb57"]
 
 [sub_resource type="GDScript" id="GDScript_ootk3"]
 script/source = "extends Node
@@ -60,7 +62,7 @@ tile_map_data = PackedByteArray("AAAIAP7/AAAKAAoAAAAIAP//AAAKAAoAAAAIAAAAAAAKAAo
 update_bounds = false
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_1fp1i")]
-position = Vector2(208, 218)
+position = Vector2(227, 138)
 
 [node name="Plant" parent="." instance=ExtResource("5_wa4h8")]
 position = Vector2(11, 64)
@@ -288,3 +290,12 @@ item_data = ExtResource("30_gm670")
 [node name="ItemPickup2" parent="." instance=ExtResource("27_s3up8")]
 position = Vector2(158, 133)
 item_data = ExtResource("31_fw76p")
+
+[node name="Slime" parent="." instance=ExtResource("33_mdb57")]
+position = Vector2(198, 262)
+
+[node name="Arrow" parent="." instance=ExtResource("33_gm670")]
+position = Vector2(96, 200)
+
+[node name="Arrow2" parent="." instance=ExtResource("33_gm670")]
+position = Vector2(92, 233)

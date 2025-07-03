@@ -1,24 +1,50 @@
 class_name PlayerAbilities extends Node
 
 const BOOMERANG = preload("res://Player/boomerang.tscn")
+const BOMB = preload("res://Interactables/bomb/bomb.tscn")
 
-enum abilities { BOOMERANG, GRAPPLE }
+var abilities : Array[ String ] = [
+	"BOOMERANG", "GRAPPLE", "BOW", "BOMB"
+]
 
-var selected_ability = abilities.BOOMERANG
+var selected_ability : int = 0
 var player : Player
 var boomerang_instance : Boomerang = null
+
+@onready var state_machine: PlayerStateMachine = $"../StateMachine"
+@onready var lift: State_Lift = $"../StateMachine/Lift"
+@onready var idle: State_Idle = $"../StateMachine/Idle"
+@onready var walk: State_Walk = $"../StateMachine/Walk"
+@onready var bow: State_Bow = $"../StateMachine/Bow"
 
 
 
 func _ready() -> void:
 	player = PlayerManager.player
+	PlayerHud.update_arrow_count( player.arrow_count )
+	PlayerHud.update_bomb_count( player.bomb_count )
 
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed( "ability" ):
-		if selected_ability == abilities.BOOMERANG:
-			boomerang_ability()
+		match selected_ability:
+			0:
+				boomerang_ability()
+			1:
+				print("Grapple hook!")
+			2:
+				bow_ability()
+			3:
+				bomb_ability()
+	elif event.is_action_pressed("switch_ability"):
+		toggle_ability()
+	pass
+
+
+func toggle_ability() -> void:
+	selected_ability = wrapi( selected_ability + 1, 0, 4 )
+	PlayerHud.update_ability_ui( selected_ability )
 	pass
 
 
@@ -39,3 +65,33 @@ func boomerang_ability() -> void:
 	pass
 
 
+func bomb_ability() -> void:
+	if player.bomb_count <= 0:
+		return
+	elif state_machine.current_state == idle or state_machine.current_state == walk:
+		# Decrease # of bombs
+		player.bomb_count -= 1
+		# Update Player HUD
+		PlayerHud.update_bomb_count( player.bomb_count )
+		# Instantiate a new bomb
+		# Player lift/carry bomb
+		lift.start_anim_late = true
+		
+		var bomb : Node2D = BOMB.instantiate()
+		player.add_sibling( bomb )
+		bomb.global_position = player.global_position
+		
+		PlayerManager.interact_handled = false
+		var throwable : ThrowableBomb = bomb.find_child("Throwable")
+		throwable.player_interact()
+	pass
+
+func bow_ability() -> void:
+	if player.arrow_count <= 0:
+		return
+	elif state_machine.current_state == idle or state_machine.current_state == walk:
+		player.arrow_count -= 1
+		PlayerHud.update_arrow_count( player.arrow_count )
+		player.state_machine.change_state( bow )
+		pass
+	pass
