@@ -23,8 +23,8 @@ var attack : int = 1 :
 var defense : int = 1
 var defense_bonus : int = 0
 
-var arrow_count : int = 10
-var bomb_count : int = 10
+var arrow_count : int = 10 : set = _set_arrow_count
+var bomb_count : int = 10 : set = _set_bomb_count
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer
@@ -175,3 +175,15 @@ func _on_player_leveled_up() -> void:
 func _on_equipment_changed() -> void:
 	update_damage_values()
 	defense_bonus = PlayerManager.INVENTORY_DATA.get_defense_bonus()
+
+
+func _set_arrow_count( value : int ) -> void:
+	arrow_count = value
+	PlayerHud.update_arrow_count( value )
+	pass
+
+
+func _set_bomb_count( value : int ) -> void:
+	bomb_count = value
+	PlayerHud.update_bomb_count( value )
+	pass

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpohuml8sje4u"]
+[gd_scene load_steps=11 format=3 uid="uid://cpohuml8sje4u"]
 
 [ext_resource type="Script" uid="uid://efs3r0txblyn" path="res://Items/item_pickup/item_pickup.gd" id="1_75i5r"]
 [ext_resource type="AudioStream" uid="uid://dqkscpjlwebc0" path="res://Items/item_pickup/item_pickup.wav" id="2_6t52m"]
 [ext_resource type="Texture2D" uid="uid://dxda6pdclrpa" path="res://Player/Sprites/Shadow.png" id="2_fgx2o"]
 [ext_resource type="Texture2D" uid="uid://bmjan6873e3h5" path="res://Items/sprites/items.png" id="3_ag87d"]
+[ext_resource type="FontFile" uid="uid://cnrqk38ddqqwy" path="res://GUI/fonts/m5x7.ttf" id="5_k6dju"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lir6u"]
 
@@ -53,6 +54,7 @@ collision_layer = 0
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_75i5r")
+item_count = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lir6u")
@@ -76,6 +78,16 @@ stream = ExtResource("2_6t52m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bp77f")
+&"": SubResource("AnimationLibrary_bp77f")
 }
 autoplay = "default"
+
+[node name="CountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 24.0
+offset_bottom = 18.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_k6dju")
+text = "99"
+horizontal_alignment = 1

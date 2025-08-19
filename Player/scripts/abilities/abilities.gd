@@ -71,8 +71,6 @@ func bomb_ability() -> void:
 	elif state_machine.current_state == idle or state_machine.current_state == walk:
 		# Decrease # of bombs
 		player.bomb_count -= 1
-		# Update Player HUD
-		PlayerHud.update_bomb_count( player.bomb_count )
 		# Instantiate a new bomb
 		# Player lift/carry bomb
 		lift.start_anim_late = true
@@ -91,7 +89,6 @@ func bow_ability() -> void:
 		return
 	elif state_machine.current_state == idle or state_machine.current_state == walk:
 		player.arrow_count -= 1
-		PlayerHud.update_arrow_count( player.arrow_count )
 		player.state_machine.change_state( bow )
 		pass
 	pass

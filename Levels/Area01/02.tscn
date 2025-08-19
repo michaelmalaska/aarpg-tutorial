@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=32 format=4 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" uid="uid://d2eyblbal755o" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -28,11 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://cpohuml8sje4u" path="res://Items/item_pickup/item_pickup.tscn" id="27_s3up8"]
 [ext_resource type="PackedScene" uid="uid://cldjbf03xmdqt" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="27_w21e7"]
 [ext_resource type="Resource" uid="uid://cixpflhl0cjvo" path="res://Items/gem.tres" id="28_dffud"]
-[ext_resource type="Resource" uid="uid://bi48vid6jl4ua" path="res://Items/potion.tres" id="29_mdb57"]
-[ext_resource type="Resource" uid="uid://c0co5vj5hgk12" path="res://Items/stone.tres" id="30_gm670"]
-[ext_resource type="Resource" uid="uid://prvahwyi1iha" path="res://Items/apple.tres" id="31_fw76p"]
-[ext_resource type="PackedScene" uid="uid://c61baowgewycx" path="res://Interactables/arrow/arrow.tscn" id="33_gm670"]
-[ext_resource type="PackedScene" uid="uid://b7x3cvq6i0qvf" path="res://Enemies/Slime/slime.tscn" id="33_mdb57"]
+[ext_resource type="Resource" uid="uid://c82m1l2i0u2l0" path="res://Items/bomb.tres" id="28_sbev4"]
+[ext_resource type="Resource" uid="uid://bdcndrurok2ci" path="res://Items/arrow.tres" id="29_vv7nh"]
 
 [sub_resource type="GDScript" id="GDScript_ootk3"]
 script/source = "extends Node
@@ -276,26 +273,16 @@ position = Vector2(111, 63)
 item_data = ExtResource("25_krow2")
 
 [node name="ItemPickup" parent="." instance=ExtResource("27_s3up8")]
-position = Vector2(126, 113)
-item_data = ExtResource("28_dffud")
+position = Vector2(146, 111)
+item_data = ExtResource("28_sbev4")
+item_count = 5
 
 [node name="ItemPickup3" parent="." instance=ExtResource("27_s3up8")]
-position = Vector2(131, 146)
-item_data = ExtResource("29_mdb57")
+position = Vector2(162, 148)
+item_data = ExtResource("29_vv7nh")
+item_count = 2
 
 [node name="ItemPickup4" parent="." instance=ExtResource("27_s3up8")]
-position = Vector2(158, 105)
-item_data = ExtResource("30_gm670")
-
-[node name="ItemPickup2" parent="." instance=ExtResource("27_s3up8")]
-position = Vector2(158, 133)
-item_data = ExtResource("31_fw76p")
-
-[node name="Slime" parent="." instance=ExtResource("33_mdb57")]
-position = Vector2(198, 262)
-
-[node name="Arrow" parent="." instance=ExtResource("33_gm670")]
-position = Vector2(96, 200)
-
-[node name="Arrow2" parent="." instance=ExtResource("33_gm670")]
-position = Vector2(92, 233)
+position = Vector2(187, 85)
+item_data = ExtResource("28_dffud")
+item_count = 99
