@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bavc6b2xl7quc" path="res://addons/michael_games_editor_plugins/stream_image_backdrop.gd" id="1_laiv6"]
 
 [sub_resource type="Gradient" id="Gradient_5xy7v"]
-offsets = PackedFloat32Array(0, 0.519481, 1)
-colors = PackedColorArray(0.239216, 0.152941, 0.25098, 1, 0.156863, 0.133333, 0.211765, 1, 0.0980392, 0.0980392, 0.0980392, 1)
+offsets = PackedFloat32Array(0, 0.623377, 1)
+colors = PackedColorArray(0.431373, 0.172549, 0.172549, 1, 0.156863, 0.0705882, 0.113725, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f4r68"]
 gradient = SubResource("Gradient_5xy7v")

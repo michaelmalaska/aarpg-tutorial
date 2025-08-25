@@ -16,6 +16,7 @@ var boomerang_instance : Boomerang = null
 @onready var idle: State_Idle = $"../StateMachine/Idle"
 @onready var walk: State_Walk = $"../StateMachine/Walk"
 @onready var bow: State_Bow = $"../StateMachine/Bow"
+@onready var grapple: State_Grapple = $"../StateMachine/Grapple"
 
 
 
@@ -32,7 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			0:
 				boomerang_ability()
 			1:
-				print("Grapple hook!")
+				grapple_ability()
 			2:
 				bow_ability()
 			3:
@@ -90,5 +91,12 @@ func bow_ability() -> void:
 	elif state_machine.current_state == idle or state_machine.current_state == walk:
 		player.arrow_count -= 1
 		player.state_machine.change_state( bow )
+		pass
+	pass
+
+
+func grapple_ability() -> void:
+	if state_machine.current_state == idle or state_machine.current_state == walk:
+		player.state_machine.change_state( grapple )
 		pass
 	pass
