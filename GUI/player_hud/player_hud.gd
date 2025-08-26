@@ -150,6 +150,16 @@ func queue_notification( _title : String, _message : String ) -> void:
 	pass
 
 
+func update_ability_items( items : Array[String] ) -> void:
+	var ability_items : Array[ Node ] = ability_items.get_children()
+	for i in ability_items.size():
+		if items[ i ] == "":
+			ability_items[ i ].visible = false
+		else:
+			ability_items[ i ].visible = true
+	pass
+
+
 func update_ability_ui( ability_index : int ) -> void:
 	var _items : Array[ Node ] = ability_items.get_children()
 	for a in _items:

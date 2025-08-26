@@ -2092,12 +2092,12 @@ process_material = SubResource("ParticleProcessMaterial_kiv1b")
 
 [node name="GrappleHook" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -14)
+position = Vector2(0, -10)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GrappleHook"]
 offset_left = -16.0
 offset_right = 16.0
-offset_bottom = 36.0
+offset_bottom = 25.0
 texture = ExtResource("36_jp1hh")
 patch_margin_top = 16
 patch_margin_bottom = 9

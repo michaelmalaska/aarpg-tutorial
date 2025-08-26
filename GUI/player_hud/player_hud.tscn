@@ -702,6 +702,7 @@ horizontal_alignment = 1
 
 [node name="Notification" type="Control" parent="Control"]
 process_mode = 3
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
