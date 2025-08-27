@@ -35,6 +35,7 @@ var bomb_count : int = 10 : set = _set_bomb_count
 @onready var lift: State_Lift = $StateMachine/Lift
 @onready var held_item: Node2D = $Sprite2D/HeldItem
 @onready var carry: State_Carry = $StateMachine/Carry
+@onready var player_abilities: PlayerAbilities = $Abilities
 
 
 
