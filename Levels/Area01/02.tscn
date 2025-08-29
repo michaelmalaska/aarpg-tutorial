@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://chcb2oelfl72f"]
+[gd_scene load_steps=36 format=4 uid="uid://chcb2oelfl72f"]
 
 [ext_resource type="Script" uid="uid://d2eyblbal755o" path="res://Levels/scripts/level.gd" id="1_1ohot"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_5s7x6"]
@@ -19,16 +19,19 @@
 [ext_resource type="PackedScene" uid="uid://dyhn3j7qk4dqw" path="res://npc/patrol_location.tscn" id="12_sc27x"]
 [ext_resource type="Script" uid="uid://bhoxv42n8rdsq" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_as0ht"]
 [ext_resource type="Script" uid="uid://c80ln4eok2stu" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_lam8a"]
-[ext_resource type="PackedScene" uid="uid://cf0a8hxch6kfd" path="res://Props/pot/pot.tscn" id="18_gcr0t"]
 [ext_resource type="Resource" uid="uid://cvnr3a38pmudn" path="res://quests/recover_lost_flute.tres" id="19_2koiu"]
 [ext_resource type="PackedScene" uid="uid://b523kljtfiar7" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_mgke4"]
 [ext_resource type="Script" uid="uid://cj17f33sisctc" path="res://quests/utility_nodes/quest_activated_switch.gd" id="21_dorfn"]
 [ext_resource type="PackedScene" uid="uid://cwby8egx8vwx2" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_vtf5b"]
 [ext_resource type="Resource" uid="uid://d3oew63xq88d4" path="res://Items/a_ninja_suit.tres" id="25_krow2"]
+[ext_resource type="Resource" uid="uid://dylmk5rhkvo1d" path="res://Items/ability_boomerang.tres" id="26_s3up8"]
+[ext_resource type="Resource" uid="uid://crnvbf2cf7c8e" path="res://Items/ability_bomb.tres" id="27_gm670"]
 [ext_resource type="PackedScene" uid="uid://cpohuml8sje4u" path="res://Items/item_pickup/item_pickup.tscn" id="27_s3up8"]
 [ext_resource type="PackedScene" uid="uid://cldjbf03xmdqt" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="27_w21e7"]
 [ext_resource type="Resource" uid="uid://cixpflhl0cjvo" path="res://Items/gem.tres" id="28_dffud"]
+[ext_resource type="Resource" uid="uid://ommu74ikveqs" path="res://Items/ability_arrow.tres" id="28_fw76p"]
 [ext_resource type="Resource" uid="uid://c82m1l2i0u2l0" path="res://Items/bomb.tres" id="28_sbev4"]
+[ext_resource type="Resource" uid="uid://dsntgc8lrd42r" path="res://Items/ability_grapple.tres" id="29_r117l"]
 [ext_resource type="Resource" uid="uid://bdcndrurok2ci" path="res://Items/arrow.tres" id="29_vv7nh"]
 [ext_resource type="PackedScene" uid="uid://b0q1f74icbihy" path="res://Interactables/grapple_post/grapple_post.tscn" id="31_s3up8"]
 
@@ -93,7 +96,7 @@ size = 1
 side = 2
 
 [node name="NPC" parent="." instance=ExtResource("7_62xuh")]
-position = Vector2(68.9864, 158.74)
+position = Vector2(62.0707, 143.942)
 npc_resource = ExtResource("8_fbvcf")
 
 [node name="NpcBehaviorWander" parent="NPC" instance=ExtResource("8_f8c10")]
@@ -263,15 +266,25 @@ Complete: true"
 [node name="Node" type="Node" parent="NPC_NERO/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch/DialogInteraction2/QuestAdvanceTrigger"]
 script = SubResource("GDScript_ootk3")
 
-[node name="Pot" parent="." instance=ExtResource("18_gcr0t")]
-position = Vector2(144, 210)
-
-[node name="Pot2" parent="." instance=ExtResource("18_gcr0t")]
-position = Vector2(121, 210)
-
 [node name="Treasure-chest" parent="." instance=ExtResource("27_w21e7")]
 position = Vector2(111, 63)
 item_data = ExtResource("25_krow2")
+
+[node name="Treasure-chest2" parent="." instance=ExtResource("27_w21e7")]
+position = Vector2(-12, 199)
+item_data = ExtResource("26_s3up8")
+
+[node name="Treasure-chest3" parent="." instance=ExtResource("27_w21e7")]
+position = Vector2(27, 199)
+item_data = ExtResource("27_gm670")
+
+[node name="Treasure-chest4" parent="." instance=ExtResource("27_w21e7")]
+position = Vector2(68, 199)
+item_data = ExtResource("28_fw76p")
+
+[node name="Treasure-chest5" parent="." instance=ExtResource("27_w21e7")]
+position = Vector2(106, 199)
+item_data = ExtResource("29_r117l")
 
 [node name="ItemPickup" parent="." instance=ExtResource("27_s3up8")]
 position = Vector2(146, 111)

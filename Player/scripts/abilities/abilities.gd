@@ -26,15 +26,17 @@ func _ready() -> void:
 	PlayerHud.update_bomb_count( player.bomb_count )
 	setup_abilities()
 	SaveManager.game_loaded.connect( _on_game_loaded )
+	PlayerManager.INVENTORY_DATA.ability_acquired.connect( _on_ability_acquired )
+	pass
 
 
 
-func setup_abilities() -> void:
+func setup_abilities( select_index : int = 0 ) -> void:
 	# Update Pause Menu
 	PauseMenu.update_ability_items( abilities )
 	# Update Player HUD
 	PlayerHud.update_ability_items( abilities )
-	selected_ability = 0
+	selected_ability = select_index - 1
 	toggle_ability()
 	pass
 
@@ -126,4 +128,20 @@ func _on_game_loaded() -> void:
 	for i in new_abilities:
 		abilities.append( i )
 	setup_abilities()
+	pass
+
+
+func _on_ability_acquired( _ability : AbilityItemData ) -> void:
+	print( "Give abillity: ", _ability.type )
+	# BOOMERANG, GRAPPLE, ARROW, BOMB
+	match _ability.type:
+		_ability.Type.BOOMERANG:
+			abilities[0] = "BOOMERANG"
+		_ability.Type.GRAPPLE:
+			abilities[1] = "GRAPPLE"
+		_ability.Type.ARROW:
+			abilities[2] = "ARROW"
+		_ability.Type.BOMB:
+			abilities[3] = "BOMB"
+	setup_abilities( selected_ability )
 	pass
