@@ -75,6 +75,8 @@ func _on_tween_finished() -> void:
 		npc.do_behavior = true
 		npc.state = "idle"
 		npc.animation.speed_scale = 1
+		npc.do_behavior_enabled.emit()
+		npc.update_animation()
 		npc.process_mode = Node.PROCESS_MODE_INHERIT
 	
 	finished.emit()

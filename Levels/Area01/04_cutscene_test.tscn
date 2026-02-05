@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=4 uid="uid://bnpo242tfas6l"]
+[gd_scene load_steps=24 format=4 uid="uid://bnpo242tfas6l"]
 
 [ext_resource type="Script" uid="uid://d2eyblbal755o" path="res://Levels/scripts/level.gd" id="1_gocoa"]
 [ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_j4y68"]
+[ext_resource type="PackedScene" uid="uid://bt8nycc2ev1qs" path="res://GeneralNodes/area_trigger/area_trigger.tscn" id="3_6r6fj"]
 [ext_resource type="PackedScene" uid="uid://cq32mohonpsw3" path="res://Tile Maps/grass-tiles-01.tscn" id="3_hh5ne"]
 [ext_resource type="PackedScene" uid="uid://dr4blo7ya448q" path="res://Levels/player_spawn.tscn" id="4_8cg85"]
 [ext_resource type="PackedScene" uid="uid://bi8crg3nv50qw" path="res://npc/npc.tscn" id="5_g6g4m"]
@@ -9,11 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://dapdr3ojo2pha" path="res://npc/npc_behavior_wander.tscn" id="7_jnq63"]
 [ext_resource type="PackedScene" uid="uid://b22o8rtjyby8c" path="res://Interactables/dialog/dialog_interaction.tscn" id="8_x30po"]
 [ext_resource type="Script" uid="uid://7qrcj0xrfdwc" path="res://Interactables/dialog/scripts/dialog_text.gd" id="9_bchre"]
-[ext_resource type="Resource" uid="uid://cdc3sykvmnn27" path="res://npc/00_npcs/00_hero.tres" id="10_4jsar"]
-[ext_resource type="Script" uid="uid://buocbwkhn4gj6" path="res://Interactables/dialog/scripts/cutscene_action_animation.gd" id="10_jnq63"]
+[ext_resource type="Script" uid="uid://ib6a845pd247" path="res://Interactables/dialog/scripts/cutscene_action_music.gd" id="10_4jsar"]
+[ext_resource type="Script" uid="uid://bn3hxd4o1fctj" path="res://Interactables/dialog/scripts/cutscene_action_player.gd" id="10_bchre"]
+[ext_resource type="Script" uid="uid://cgv82amncyx68" path="res://Interactables/dialog/scripts/cutscene_action_camera.gd" id="11_6ays4"]
+[ext_resource type="AudioStream" uid="uid://bss1hbkoufxql" path="res://Levels/music/example_music_03.ogg" id="11_6r6fj"]
 [ext_resource type="Script" uid="uid://0mcihlaufovq" path="res://Interactables/dialog/scripts/dialog_cutscene.gd" id="11_86h4m"]
+[ext_resource type="Resource" uid="uid://cdc3sykvmnn27" path="res://npc/00_npcs/00_hero.tres" id="12_hvxrb"]
 [ext_resource type="Script" uid="uid://cof5epf5dwei1" path="res://Interactables/dialog/scripts/cutscene_action_move.gd" id="12_x30po"]
 [ext_resource type="PackedScene" uid="uid://cf0a8hxch6kfd" path="res://Props/pot/pot.tscn" id="14_bchre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvxrb"]
+size = Vector2(276, 224)
 
 [sub_resource type="Animation" id="Animation_bchre"]
 length = 0.001
@@ -74,11 +81,175 @@ y_sort_enabled = true
 script = ExtResource("1_gocoa")
 music = ExtResource("2_j4y68")
 
+[node name="AreaTrigger" parent="." instance=ExtResource("3_6r6fj")]
+
+[node name="DialogInteraction" parent="AreaTrigger" instance=ExtResource("8_x30po")]
+position = Vector2(321, 154)
+enabled = false
+
+[node name="DialogCutscene_MOVE" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("11_86h4m")
+npc_info = ExtResource("6_86h4m")
+metadata/_custom_type_script = "uid://0mcihlaufovq"
+
+[node name="CutsceneActionMusic" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE"]
+script = ExtResource("10_4jsar")
+track = ExtResource("11_6r6fj")
+metadata/_custom_type_script = "uid://ib6a845pd247"
+
+[node name="CutsceneActionMove" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(355, 66)
+script = ExtResource("12_x30po")
+timing_method = 1
+object_to_move = NodePath("../../../../NPC")
+move_speed = 80.0
+metadata/_custom_type_script = "uid://cof5epf5dwei1"
+
+[node name="CutsceneActionMove2" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(417, 66)
+script = ExtResource("12_x30po")
+timing_method = 1
+object_to_move = NodePath("../../../../NPC")
+move_speed = 80.0
+metadata/_custom_type_script = "uid://cof5epf5dwei1"
+
+[node name="CutsceneActionMove3" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(425, 102)
+script = ExtResource("12_x30po")
+timing_method = 1
+object_to_move = NodePath("../../../../NPC")
+move_speed = 80.0
+metadata/_custom_type_script = "uid://cof5epf5dwei1"
+
+[node name="DialogText" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "You, young hero. Come over here,
+and let me peer into your eyes..."
+npc_info = ExtResource("6_86h4m")
+
+[node name="DialogCutscene_MOVE2" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("11_86h4m")
+playback_mode = 0
+npc_info = ExtResource("6_86h4m")
+metadata/_custom_type_script = "uid://0mcihlaufovq"
+
+[node name="CutsceneActionPlayer" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE2"]
+position = Vector2(425, 125)
+script = ExtResource("10_bchre")
+timing_method = 1
+metadata/_custom_type_script = "uid://bn3hxd4o1fctj"
+
+[node name="CutsceneActionCamera" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE2"]
+position = Vector2(366, 111)
+script = ExtResource("11_6ays4")
+metadata/_custom_type_script = "uid://cgv82amncyx68"
+
+[node name="DialogText2" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "
+Yes... I see..."
+npc_info = ExtResource("6_86h4m")
+
+[node name="DialogText3" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "
+Indeed, there is power within you..."
+npc_info = ExtResource("6_86h4m")
+
+[node name="DialogText4" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "
+Have you taken the oath of the warrior?"
+npc_info = ExtResource("6_86h4m")
+
+[node name="DialogText5" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "I have only begun my training. I fear I am not ready to be tested.
+What must I do to prove my readiness?"
+npc_info = ExtResource("12_hvxrb")
+
+[node name="DialogText6" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "Perhaps, if you could send this pot over
+those hills. Such a feat would show that
+you are most worthy."
+npc_info = ExtResource("6_86h4m")
+
+[node name="DialogText7" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "
+I'll try..."
+npc_info = ExtResource("12_hvxrb")
+
+[node name="DialogCutscene_MOVE3" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("11_86h4m")
+npc_info = ExtResource("6_86h4m")
+metadata/_custom_type_script = "uid://0mcihlaufovq"
+
+[node name="CutsceneActionPlayer" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE3"]
+position = Vector2(392, 119)
+script = ExtResource("10_bchre")
+timing_method = 1
+move_speed = 50.0
+animation_speed_factor = 50.0
+metadata/_custom_type_script = "uid://bn3hxd4o1fctj"
+
+[node name="DialogCutscene_MOVE5" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("11_86h4m")
+npc_info = ExtResource("6_86h4m")
+metadata/_custom_type_script = "uid://0mcihlaufovq"
+
+[node name="CutsceneActionPlayer" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE5"]
+position = Vector2(397, 119)
+script = ExtResource("10_bchre")
+finish_direction = "right"
+timing_method = 1
+move_speed = 50.0
+animation_speed_factor = 50.0
+metadata/_custom_type_script = "uid://bn3hxd4o1fctj"
+
+[node name="DialogCutscene_MOVE4" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("11_86h4m")
+playback_mode = 0
+npc_info = ExtResource("6_86h4m")
+metadata/_custom_type_script = "uid://0mcihlaufovq"
+
+[node name="CutsceneActionPlayer2" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE4"]
+position = Vector2(392, 119)
+script = ExtResource("10_bchre")
+animation_name = "attack"
+move_duration = 0.3
+scale_animation_with_movement = false
+metadata/_custom_type_script = "uid://bn3hxd4o1fctj"
+
+[node name="CutsceneActionMove" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene_MOVE4" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(392, -87)
+script = ExtResource("12_x30po")
+timing_method = 1
+object_to_move = NodePath("../../../../Pot")
+move_speed = 400.0
+metadata/_custom_type_script = "uid://cof5epf5dwei1"
+
+[node name="DialogText8" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "
+Wow, you are such a buff and amazing dude!"
+npc_info = ExtResource("6_86h4m")
+
+[node name="DialogText9" type="Node" parent="AreaTrigger/DialogInteraction"]
+script = ExtResource("9_bchre")
+text = "What? Your entire demeanor and manner of speech has changed. Who are you really!?"
+npc_info = ExtResource("12_hvxrb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTrigger"]
+position = Vector2(378, 144)
+shape = SubResource("RectangleShape2D_hvxrb")
+
 [node name="grass-tiles-01" parent="." instance=ExtResource("3_hh5ne")]
 tile_map_data = PackedByteArray("AAAAAP//AAACAAUAAAAAAAAAAAACAAYAAAAAAAEAAAANAAQAAAAAAAIAAAANAAUAAAAAAAMAAAANAAUAAAAAAAQAAAANAAUAAAAAAAUAAAANAAUAAAAAAAYAAAANAAUAAAAAAAcAAAANAAUAAAAAAAgAAAANAAUAAAABAP//AAADAAUAAAABAAAAAAADAAYAAAABAAEAAAAOAAQAAAABAAIAAAAOAAUAAAABAAMAAAAOAAUAAAABAAQAAAAOAAUAAAABAAUAAAAOAAUAAAABAAYAAAAOAAUAAAABAAcAAAAOAAUAAAABAAgAAAAOAAUAAAACAP//AAAEAAUAAAACAAAAAAAEAAYAAAACAAEAAAACAAAAAAACAAIAAAACAAAAAAACAAMAAAACAAAAAAACAAQAAAACAAAAAAACAAUAAAACAAAAAAACAAYAAAACAAAAAAACAAcAAAACAAAAAAACAAgAAAAKAAQAAAADAP//AAACAAUAAAADAAAAAAACAAYAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAALAAQAAAAEAP//AAADAAUAAAAEAAAAAAADAAYAAAAEAAEAAAABAAAAAAAEAAIAAAABAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAEAAUAAAACAAEAAAAEAAYAAAABAAAAAAAEAAcAAAABAAAAAAAEAAgAAAAMAAQAAAAFAP//AAAEAAUAAAAFAAAAAAAEAAYAAAAFAAEAAAACAAAAAAAFAAIAAAACAAAAAAAFAAMAAAACAAAAAAAFAAQAAAACAAAAAAAFAAUAAAACAAAAAAAFAAYAAAACAAAAAAAFAAcAAAACAAAAAAAFAAgAAAANAAQAAAAGAP//AAACAAUAAAAGAAAAAAACAAYAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAALAAQAAAAHAP//AAADAAUAAAAHAAAAAAADAAYAAAAHAAEAAAABAAAAAAAHAAIAAAABAAAAAAAHAAMAAAABAAAAAAAHAAQAAAABAAAAAAAHAAUAAAABAAAAAAAHAAYAAAABAAAAAAAHAAcAAAABAAAAAAAHAAgAAAAMAAQAAAAIAP//AAAEAAUAAAAIAAAAAAAEAAYAAAAIAAEAAAACAAAAAAAIAAIAAAACAAAAAAAIAAMAAAACAAAAAAAIAAQAAAACAAAAAAAIAAUAAAACAAAAAAAIAAYAAAACAAAAAAAIAAcAAAACAAAAAAAIAAgAAAANAAQAAAAJAP//AAACAAUAAAAJAAAAAAACAAYAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAALAAQAAAAKAP//AAADAAUAAAAKAAAAAAADAAYAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAgAAAAMAAQAAAALAP//AAAEAAUAAAALAAAAAAAEAAYAAAALAAEAAAACAAAAAAALAAIAAAACAAAAAAALAAMAAAACAAAAAAALAAQAAAACAAAAAAALAAUAAAACAAAAAAALAAYAAAACAAAAAAALAAcAAAACAAAAAAALAAgAAAANAAQAAAAMAP//AAACAAUAAAAMAAAAAAACAAYAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAALAAQAAAANAP//AAADAAUAAAANAAAAAAADAAYAAAANAAEAAAABAAAAAAANAAIAAAABAAAAAAANAAMAAAABAAAAAAANAAQAAAABAAAAAAANAAUAAAABAAAAAAANAAYAAAABAAAAAAANAAcAAAABAAAAAAANAAgAAAAMAAQAAAAOAP//AAAEAAUAAAAOAAAAAAAEAAYAAAAOAAEAAAACAAAAAAAOAAIAAAACAAAAAAAOAAMAAAACAAAAAAAOAAQAAAACAAAAAAAOAAUAAAACAAAAAAAOAAYAAAACAAAAAAAOAAcAAAACAAAAAAAOAAgAAAANAAQAAAAPAP//AAACAAUAAAAPAAAAAAACAAYAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAALAAQAAAAQAP//AAADAAUAAAAQAAAAAAADAAYAAAAQAAEAAAAKAAQAAAAQAAIAAAAKAAUAAAAQAAMAAAAKAAUAAAAQAAQAAAAKAAUAAAAQAAUAAAAKAAUAAAAQAAYAAAAKAAYAAAAQAAcAAAAKAAcAAAAQAAgAAAAMAAQAAAA=")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_8cg85")]
-position = Vector2(210, 158)
+position = Vector2(122, 158)
 
 [node name="NPC" parent="." instance=ExtResource("5_g6g4m")]
 position = Vector2(322, 154)
@@ -86,77 +257,6 @@ npc_resource = ExtResource("6_86h4m")
 
 [node name="NpcBehaviorWander" parent="NPC" instance=ExtResource("7_jnq63")]
 wander_range = 1
-
-[node name="DialogInteraction" parent="NPC" instance=ExtResource("8_x30po")]
-
-[node name="DialogCutscene_MOVE" type="Node" parent="NPC/DialogInteraction"]
-script = ExtResource("11_86h4m")
-metadata/_custom_type_script = "uid://0mcihlaufovq"
-
-[node name="CutsceneActionMove" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" node_paths=PackedStringArray("object_to_move")]
-position = Vector2(251, 90)
-script = ExtResource("12_x30po")
-timing_method = 1
-object_to_move = NodePath("../../..")
-move_duration = 2.0
-move_speed = 100.0
-metadata/_custom_type_script = "uid://cof5epf5dwei1"
-
-[node name="CutsceneActionMove2" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" node_paths=PackedStringArray("object_to_move")]
-position = Vector2(251, 226)
-script = ExtResource("12_x30po")
-timing_method = 1
-object_to_move = NodePath("../../..")
-move_duration = 2.0
-move_speed = 400.0
-metadata/_custom_type_script = "uid://cof5epf5dwei1"
-
-[node name="CutsceneActionMove3" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" node_paths=PackedStringArray("object_to_move")]
-position = Vector2(395, 178)
-script = ExtResource("12_x30po")
-object_to_move = NodePath("../../../../Pot")
-transition_type = 5
-easing_method = 0
-move_duration = 1.5
-metadata/_custom_type_script = "uid://cof5epf5dwei1"
-
-[node name="DialogCutscene" type="Node" parent="NPC/DialogInteraction"]
-script = ExtResource("11_86h4m")
-metadata/_custom_type_script = "uid://0mcihlaufovq"
-
-[node name="CutsceneActionAnimation2" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("10_jnq63")
-animation_player = NodePath("../../../../AnimationPlayer")
-animation_name = "fade_to_black"
-metadata/_custom_type_script = "uid://buocbwkhn4gj6"
-
-[node name="DialogText" type="Node" parent="NPC/DialogInteraction"]
-script = ExtResource("9_bchre")
-text = "
-Hey, who turned out the lights!?"
-npc_info = ExtResource("6_86h4m")
-
-[node name="DialogText2" type="Node" parent="NPC/DialogInteraction"]
-script = ExtResource("9_bchre")
-text = "
-[wave]It wasn't me![/wave]"
-npc_info = ExtResource("10_4jsar")
-
-[node name="DialogCutscene2" type="Node" parent="NPC/DialogInteraction"]
-script = ExtResource("11_86h4m")
-metadata/_custom_type_script = "uid://0mcihlaufovq"
-
-[node name="CutsceneActionAnimation3" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene2" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("10_jnq63")
-animation_player = NodePath("../../../../AnimationPlayer")
-animation_name = "fade_to_normal"
-metadata/_custom_type_script = "uid://buocbwkhn4gj6"
-
-[node name="DialogText3" type="Node" parent="NPC/DialogInteraction"]
-script = ExtResource("9_bchre")
-text = "
-Oh nice, the lights are back!"
-npc_info = ExtResource("6_86h4m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

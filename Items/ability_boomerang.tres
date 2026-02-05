@@ -10,10 +10,6 @@ region = Rect2(32, 0, 32, 0)
 
 [resource]
 script = ExtResource("2_wcluj")
-type = 0
 name = "Boomerange"
-description = ""
 texture = SubResource("AtlasTexture_sn5yh")
-cost = 10
-effects = Array[ExtResource("1_vqixp")]([])
 metadata/_custom_type_script = "uid://cxf4k8npd3ij6"

@@ -14,7 +14,6 @@ value = 5
 [sub_resource type="Resource" id="Resource_b8f6m"]
 script = ExtResource("2_13sgp")
 type = 1
-value = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1djdd"]
 atlas = ExtResource("4_dlye8")
@@ -30,4 +29,3 @@ description = "This ninja suit is totally rad,
 and suprisingly comfy."
 texture = SubResource("AtlasTexture_1djdd")
 cost = 600
-effects = Array[ExtResource("1_a7jn7")]([])

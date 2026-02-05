@@ -2,6 +2,7 @@
 @icon("res://GUI/dialog_system/icons/star_bubble.svg")
 class_name DialogSystemNode extends CanvasLayer
 
+signal started
 signal finished
 signal letter_added( letter : String )
 
@@ -78,15 +79,23 @@ func advance_dialog() -> void:
 ## Show the dialog UI
 func show_dialog( _items : Array[ DialogItem ] ) -> void:
 	is_active = true
-	if _items[0] is DialogCutscene:
-		dialog_ui.visible = false
-	else:
-		dialog_ui.visible = true
+	
+	if _items:
+		if _items[0] is DialogCutscene:
+			dialog_ui.visible = false
+		else:
+			dialog_ui.visible = true
+		
+		for i in _items:
+			if i is DialogCutscene:
+				$CutsceneUI/AnimationPlayer.play( "start" )
+	
 	dialog_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	dialog_items = _items
 	dialog_item_index = 0
 	get_tree().paused = true
 	await get_tree().process_frame
+	started.emit()
 	if dialog_items.size() == 0:
 		hide_dialog()
 	else:
@@ -103,6 +112,8 @@ func hide_dialog() -> void:
 	dialog_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().paused = false
 	finished.emit()
+	PlayerManager.reset_camera_on_player()
+	$CutsceneUI/AnimationPlayer.play( "end" )
 	pass
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://ji4kjoqm3nuh"]
+[gd_scene load_steps=109 format=3 uid="uid://ji4kjoqm3nuh"]
 
 [ext_resource type="Script" uid="uid://b7e6raial18mb" path="res://Player/scripts/player.gd" id="1_jeo53"]
 [ext_resource type="Texture2D" uid="uid://d3nmq8hjxv1d6" path="res://Player/Sprites/player_sprite.png" id="2_rl52y"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://uqapv8bltas2" path="res://Player/scripts/player_interactions_host.gd" id="10_aivbr"]
 [ext_resource type="PackedScene" uid="uid://cpvl4rru3x52v" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="10_kupm1"]
 [ext_resource type="Script" uid="uid://balw8bf16tnb1" path="res://Player/scripts/states/state_stun.gd" id="11_1yhfb"]
+[ext_resource type="Script" uid="uid://ddeptentiem5g" path="res://Player/scripts/states/state_cutscene.gd" id="11_6pogt"]
 [ext_resource type="Script" uid="uid://b6cf2mm5leuys" path="res://Player/scripts/player_camera.gd" id="11_hn37x"]
 [ext_resource type="Script" uid="uid://cor72ltffhvg4" path="res://Player/scripts/states/state_charge_attack.gd" id="12_gmwcb"]
 [ext_resource type="AudioStream" uid="uid://cyb6cn6cb5eck" path="res://Player/audio/charged.wav" id="13_0i7o6"]
@@ -1957,6 +1958,9 @@ script = ExtResource("3_28xa5")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_d0h4s")
+
+[node name="Cutscene" type="Node" parent="StateMachine"]
+script = ExtResource("11_6pogt")
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("5_b2txu")

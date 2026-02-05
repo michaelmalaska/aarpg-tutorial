@@ -9,7 +9,6 @@
 [sub_resource type="Resource" id="Resource_n4711"]
 script = ExtResource("2_b6mtu")
 type = 2
-value = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1djdd"]
 atlas = ExtResource("4_s8q2t")
@@ -24,4 +23,3 @@ name = "Tunic & Cape"
 description = "The tunic is clean and pressed, and the cape is oh-so-stylish."
 texture = SubResource("AtlasTexture_1djdd")
 cost = 150
-effects = Array[ExtResource("1_vstqj")]([])

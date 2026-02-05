@@ -10,7 +10,6 @@
 script = ExtResource("1_iyld5")
 heal_amount = 2
 audio = ExtResource("2_kw440")
-use_description = ""
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7b3ei"]
 atlas = ExtResource("2_3wyth")

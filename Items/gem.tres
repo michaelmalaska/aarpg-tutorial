@@ -14,4 +14,3 @@ name = "Gem"
 description = "A valuable gem!"
 texture = SubResource("AtlasTexture_7aa43")
 cost = 1
-effects = Array[ExtResource("1_axjn8")]([])

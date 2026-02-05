@@ -53,3 +53,5 @@ func fade_out_and_stop( player : AudioStreamPlayer ) -> void:
 	pass
 
 
+func get_current_track() -> AudioStream:
+	return music_players[ current_music_player ].stream
